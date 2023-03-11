@@ -14,8 +14,8 @@ class ThemeColors {
   // App basic colors
   static const appPrimary = Color(0xFF11a5ed);
   static const onAppPrimary = ThemeColors.white;
-  static const accent = Color(0xFF4402A1);
-  static const onAccent = ThemeColors.white;
+  static const appAccent = Color(0xFF4402A1);
+  static const onAppAccent = ThemeColors.white;
   static const background = Color(0xFFEDF3F5);
   static const onBackground = Color(0xFF2F2F2F);
 
