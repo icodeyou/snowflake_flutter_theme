@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
 
-/// All sizes are defined in this class
-// ignore_for_file: public_member_api_docs
-// TODO(jeanvallon): remove this line
+/// All sizes (height and width, paddings, margins) are defined in this class
 
 class ThemeSizes {
+  
+  /// XXXS size
   static const double xxxs = 2;
+
+  /// XXS size
   static const double xxs = 4;
+
+  /// XS size
   static const double xs = 8;
+
+  /// S size
   static const double s = 12;
+
+  /// M size
   static const double m = 16;
+
+  /// L size
   static const double l = 20;
+
+  /// XL size
   static const double xl = 24;
+
+  /// XXL size
   static const double xxl = 32;
+
+  /// XXXL size
   static const double xxxl = 40;
 }
 
+/// Size extensions on double
 extension ThemeSizesExtensions on double {
+
+  /// Transform double into EdgeInsets, applied on all sides
   EdgeInsets get asInsets => EdgeInsets.all(this);
 }
