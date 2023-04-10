@@ -159,27 +159,25 @@ class SnackBarBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final title = this.title;
 
-    final content = Flexible(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (title != null) ...[
-            AppText.bodyLarge(
-              title,
-              color: getOnBackgroundColor(context),
-              fontWeight: FontWeight.w600,
-            ),
-            const SizedBox(
-              height: ThemeSizes.xs,
-            ),
-          ],
-          AppText.bodyMedium(
-            message,
+    final content = Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (title != null) ...[
+          AppText.bodyLarge(
+            title,
             color: getOnBackgroundColor(context),
+            fontWeight: FontWeight.w600,
+          ),
+          const SizedBox(
+            height: ThemeSizes.xs,
           ),
         ],
-      ),
+        AppText.bodyMedium(
+          message,
+          color: getOnBackgroundColor(context),
+        ),
+      ],
     );
 
     return TextButton(
