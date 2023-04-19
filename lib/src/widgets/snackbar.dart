@@ -164,7 +164,7 @@ class SnackBarBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title != null) ...[
-          AppText.bodyLarge(
+          AppText.l(
             title,
             color: getOnBackgroundColor(context),
             fontWeight: FontWeight.w600,
@@ -173,7 +173,7 @@ class SnackBarBody extends StatelessWidget {
             height: ThemeSizes.xs,
           ),
         ],
-        AppText.bodyMedium(
+        AppText.m(
           message,
           color: getOnBackgroundColor(context),
         ),

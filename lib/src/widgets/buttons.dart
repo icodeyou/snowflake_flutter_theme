@@ -117,7 +117,7 @@ class AppButton extends StatelessWidget {
               width: ThemeSizes.s,
             ),
           if (label != null)
-            AppText.bodyLarge(
+            AppText.l(
               label,
               fontWeight: FontWeight.w600,
               color: foregroundColor,

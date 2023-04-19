@@ -27,8 +27,8 @@ class AppErrorDetailsWidget extends StatelessWidget {
         padding: ThemeSizes.m.asInsets,
         child: Column(
           children: [
-            AppText.bodyLarge(errorTitle, color: ThemeColors.statusError),
-            AppText.bodyMedium(
+            AppText.l(errorTitle, color: ThemeColors.statusError),
+            AppText.m(
               errorMessage,
               color: ThemeColors.statusError,
             ),

@@ -29,6 +29,7 @@ ThemeData getSnowflakeThemeData() {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        // TODO(jeanvallon): Find a way to get style from AppText.m()
         textStyle: fallbackTheme.textTheme.bodyMedium,
         backgroundColor: ThemeColors.appAccent,
         shape: RoundedRectangleBorder(
