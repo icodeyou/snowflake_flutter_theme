@@ -14,7 +14,7 @@ enum StyleEnum {
 
 class AppText extends StatelessWidget {
   const AppText.bodyLarge(
-    this.data, {
+    this.text, {
     super.key,
     this.textAlign,
     this.softWrap,
@@ -27,7 +27,7 @@ class AppText extends StatelessWidget {
   }) : enumStyle = StyleEnum.bodyLarge;
 
   const AppText.bodyMedium(
-    this.data, {
+    this.text, {
     super.key,
     this.textAlign,
     this.softWrap,
@@ -40,7 +40,7 @@ class AppText extends StatelessWidget {
   }) : enumStyle = StyleEnum.bodyMedium;
 
   const AppText.bodySmall(
-    this.data, {
+    this.text, {
     super.key,
     this.textAlign,
     this.softWrap,
@@ -53,7 +53,7 @@ class AppText extends StatelessWidget {
   }) : enumStyle = StyleEnum.bodySmall;
 
   const AppText.titleLarge(
-    this.data, {
+    this.text, {
     super.key,
     this.textAlign,
     this.softWrap,
@@ -66,7 +66,7 @@ class AppText extends StatelessWidget {
   }) : enumStyle = StyleEnum.titleLarge;
 
   const AppText.titleMedium(
-    this.data, {
+    this.text, {
     super.key,
     this.textAlign,
     this.softWrap,
@@ -79,7 +79,7 @@ class AppText extends StatelessWidget {
   }) : enumStyle = StyleEnum.titleMedium;
 
   const AppText.titleSmall(
-    this.data, {
+    this.text, {
     super.key,
     this.textAlign,
     this.softWrap,
@@ -91,7 +91,7 @@ class AppText extends StatelessWidget {
     this.textDecoration,
   }) : enumStyle = StyleEnum.titleSmall;
 
-  final String data;
+  final String text;
   final TextAlign? textAlign;
   final bool? softWrap;
   final TextOverflow? overflow;
@@ -137,7 +137,7 @@ class AppText extends StatelessWidget {
         : this.overflow;
 
     return Text(
-      data,
+      text,
       textAlign: textAlign,
       softWrap: softWrap,
       overflow: overflow,
