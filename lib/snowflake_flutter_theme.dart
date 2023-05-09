@@ -4,10 +4,9 @@ library snowflake_flutter_theme;
 export 'src/data/colors.dart' show ThemeColors;
 export 'src/data/decorations.dart' show ThemeDecorations;
 export 'src/data/durations.dart' show ThemeDurations;
-export 'src/data/radius.dart' show ThemeRadius;
-export 'src/data/radius.dart' show ThemeRadiusExtensions;
-export 'src/data/sizes.dart' show ThemeSizes;
-export 'src/data/sizes.dart' show ThemeSizesExtensions;
+export 'src/data/radius.dart' show ThemeRadius, ThemeRadiusExtensions;
+export 'src/data/sizes.dart'
+    show EwaSizesInsetsExtensions, ThemeSizes, ThemeSizesExtensions;
 
 /// Main methods
 export 'src/snowflake_theme_data.dart' show getSnowflakeThemeData;
