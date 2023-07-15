@@ -18,7 +18,7 @@ ThemeData getSnowflakeThemeData() {
       displayColor: ThemeColors.defaultText,
     ),
     cardTheme: fallbackTheme.cardTheme.copyWith(
-      color: ThemeColors.background,
+      color: ThemeColors.white,
       shadowColor: ThemeColors.darkGrey,
       surfaceTintColor: ThemeColors.onBackground,
       margin: EdgeInsets.zero,
