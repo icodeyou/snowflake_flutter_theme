@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 
 /// Function to use in `MaterialApp()` to get main theme
-ThemeData getSnowflakeThemeData() {
+ThemeData getSnowflakeThemeData(ThemeMode themeMode) {
   final fallbackTheme = ThemeData.fallback();
 
   return fallbackTheme.copyWith(
+    brightness:
+        themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
     useMaterial3: true,
     appBarTheme: const AppBarTheme(
       backgroundColor: ThemeColors.background,
