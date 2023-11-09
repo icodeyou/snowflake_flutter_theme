@@ -33,7 +33,7 @@ class AppLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = this.color ?? ThemeColors.secondary;
+    final color = this.color ?? ThemeColors.secondary(context);
 
     final dimension = () {
       switch (size) {

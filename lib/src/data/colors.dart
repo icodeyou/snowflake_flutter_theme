@@ -5,13 +5,17 @@ import 'package:flutter/material.dart';
 
 /// All theme colors are defined in this class
 class ThemeColors {
-  static Color get primary => ThemeData.fallback().colorScheme.primary;
-  static Color get onPrimary => ThemeData.fallback().colorScheme.onPrimary;
-  static Color get secondary => ThemeData.fallback().colorScheme.secondary;
-  static Color get onSecondary => ThemeData.fallback().colorScheme.onSecondary;
-  static Color get background => ThemeData.fallback().colorScheme.background;
-  static Color get onBackground =>
-      ThemeData.fallback().colorScheme.onBackground;
+  static Color primary(BuildContext ctx) => Theme.of(ctx).colorScheme.primary;
+  static Color onPrimary(BuildContext ctx) =>
+      Theme.of(ctx).colorScheme.onPrimary;
+  static Color secondary(BuildContext ctx) =>
+      Theme.of(ctx).colorScheme.secondary;
+  static Color onSecondary(BuildContext ctx) =>
+      Theme.of(ctx).colorScheme.onSecondary;
+  static Color background(BuildContext ctx) =>
+      Theme.of(ctx).colorScheme.background;
+  static Color onBackground(BuildContext ctx) =>
+      Theme.of(ctx).colorScheme.onBackground;
 
   // Painting colors
   static Color black = const Color(0xFF000000);
@@ -20,7 +24,7 @@ class ThemeColors {
   static Color darkGrey = const Color(0xFF9D9D9D);
 
   // App text colors
-  static Color defaultText = onBackground;
+  static Color defaultText(BuildContext ctx) => onBackground(ctx);
 
   // App status colors
   static Color statusError = const Color(0xFFFDE6EE);
@@ -28,7 +32,7 @@ class ThemeColors {
   static Color statusWarning = const Color(0xFFFFFAE5);
   static Color onStatusWarning = const Color(0xFFDD960D);
   static Color statusInfo = lightGrey;
-  static Color onStatusInfo = defaultText;
+  static Color onStatusInfo(BuildContext ctx) => defaultText(ctx);
   static Color statusSuccess = const Color(0xFFEBFBF1);
   static Color onStatusSuccess = const Color(0xFF00966D);
 
