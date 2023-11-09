@@ -26,10 +26,10 @@ ThemeData getSnowflakeThemeData({
       onPrimary: appColors?.onPrimary,
       secondary: appColors?.secondary,
       onSecondary: appColors?.onSecondary,
-      background: appColors?.background,
+      background: Colors.amber,
       onBackground: appColors?.onBackground,
     ),
-    scaffoldBackgroundColor: appColors?.background,
+    scaffoldBackgroundColor: ThemeColors.background,
     useMaterial3: true,
     appBarTheme: AppBarTheme(
       backgroundColor: ThemeColors.background,
