@@ -6,8 +6,8 @@ import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 /// Function to use in `MaterialApp()` to get main theme
 /// [mode] defines whether the theme is light or dark
 /// [appColors] defines colors that are specific to the app
-ThemeData getSnowflakeThemeData(
-  ThemeMode mode,
+ThemeData getSnowflakeThemeData({
+  required ThemeMode mode,
   ({
     Color primary,
     Color onPrimary,
@@ -16,7 +16,7 @@ ThemeData getSnowflakeThemeData(
     Color background,
     Color onBackground,
   })? appColors,
-) {
+}) {
   final fallbackTheme = ThemeData.fallback();
 
   return fallbackTheme.copyWith(
