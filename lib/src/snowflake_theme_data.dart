@@ -29,6 +29,7 @@ ThemeData getSnowflakeThemeData({
       background: appColors?.background,
       onBackground: appColors?.onBackground,
     ),
+    scaffoldBackgroundColor: appColors?.background,
     useMaterial3: true,
     appBarTheme: AppBarTheme(
       backgroundColor: ThemeColors.background,
@@ -62,6 +63,5 @@ ThemeData getSnowflakeThemeData({
       color: ThemeColors.primary,
       size: ThemeSizes.l,
     ),
-    scaffoldBackgroundColor: ThemeColors.background,
   );
 }
