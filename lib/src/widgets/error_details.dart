@@ -37,7 +37,7 @@ class AppErrorDetailsWidget extends StatelessWidget {
               AppButton.primary(
                 label: retryButtonLabel,
                 onPressed: retryCallback,
-              )
+              ),
           ],
         ),
       ),

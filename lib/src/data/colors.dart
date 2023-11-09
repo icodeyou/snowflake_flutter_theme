@@ -5,33 +5,33 @@ import 'package:flutter/material.dart';
 
 /// All theme colors are defined in this class
 class ThemeColors {
-  // Painting colors
-  static const black = Color(0xFF000000);
-  static const white = Color(0xFFFFFFFF);
-  static const lightGrey = Color(0xFFececec);
-  static const darkGrey = Color(0xFF9D9D9D);
+  static Color get primary => ThemeData.fallback().colorScheme.primary;
+  static Color get onPrimary => ThemeData.fallback().colorScheme.onPrimary;
+  static Color get secondary => ThemeData.fallback().colorScheme.secondary;
+  static Color get onSecondary => ThemeData.fallback().colorScheme.onSecondary;
+  static Color get background => ThemeData.fallback().colorScheme.background;
+  static Color get onBackground =>
+      ThemeData.fallback().colorScheme.onBackground;
 
-  // App basic colors
-  static const appPrimary = Color(0xFF11a5ed);
-  static const onAppPrimary = ThemeColors.white;
-  static const appAccent = Color(0xFF4402A1);
-  static const onAppAccent = ThemeColors.white;
-  static const background = Color(0xFFEDF3F5);
-  static const onBackground = Color(0xFF2F2F2F);
+  // Painting colors
+  static Color black = const Color(0xFF000000);
+  static Color white = const Color(0xFFFFFFFF);
+  static Color lightGrey = const Color(0xFFececec);
+  static Color darkGrey = const Color(0xFF9D9D9D);
 
   // App text colors
-  static const defaultText = onBackground;
+  static Color defaultText = onBackground;
 
   // App status colors
-  static const statusError = Color(0xFFFDE6EE);
-  static const onStatusError = Color(0xFFF50A42);
-  static const statusWarning = Color(0xFFFFFAE5);
-  static const onStatusWarning = Color(0xFFDD960D);
-  static const statusInfo = lightGrey;
-  static const onStatusInfo = defaultText;
-  static const statusSuccess = Color(0xFFEBFBF1);
-  static const onStatusSuccess = Color(0xFF00966D);
+  static Color statusError = const Color(0xFFFDE6EE);
+  static Color onStatusError = const Color(0xFFF50A42);
+  static Color statusWarning = const Color(0xFFFFFAE5);
+  static Color onStatusWarning = const Color(0xFFDD960D);
+  static Color statusInfo = lightGrey;
+  static Color onStatusInfo = defaultText;
+  static Color statusSuccess = const Color(0xFFEBFBF1);
+  static Color onStatusSuccess = const Color(0xFF00966D);
 
   // Other app colors
-  static const debug = Color(0xFF34c85a);
+  static Color debug = const Color(0xFF34c85a);
 }

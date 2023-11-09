@@ -16,6 +16,7 @@ class ThemeDecorations {
     ],
   );
 
+  /// Create an elevated box with a dark background, rounded borders
   static final BoxDecoration greyBox = BoxDecoration(
     color: Colors.white,
     borderRadius: ThemeRadius.m.asBorderRadius,

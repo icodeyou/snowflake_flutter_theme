@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 
 /// Function to use in `MaterialApp()` to get main theme
-ThemeData getSnowflakeThemeData(ThemeMode themeMode) {
+ThemeData getSnowflakeThemeData(ThemeMode mode) {
   final fallbackTheme = ThemeData.fallback();
 
   return fallbackTheme.copyWith(
-    brightness:
-        themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
+    brightness: mode == ThemeMode.dark ? Brightness.dark : Brightness.light,
     useMaterial3: true,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       backgroundColor: ThemeColors.background,
       elevation: 1,
     ),
@@ -26,25 +25,21 @@ ThemeData getSnowflakeThemeData(ThemeMode themeMode) {
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
         borderRadius: ThemeRadius.m.asBorderRadius,
-        side: const BorderSide(color: ThemeColors.onBackground),
+        side: BorderSide(color: ThemeColors.onBackground),
       ),
-    ),
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      primary: ThemeColors.appPrimary,
-      secondary: ThemeColors.appAccent,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         // TODO(jeanvallon): Find a way to get style from AppText.m()
         textStyle: fallbackTheme.textTheme.bodyMedium,
-        backgroundColor: ThemeColors.appAccent,
+        backgroundColor: ThemeColors.secondary,
         shape: RoundedRectangleBorder(
           borderRadius: ThemeRadius.m.asBorderRadius,
         ),
       ),
     ),
-    iconTheme: const IconThemeData(
-      color: ThemeColors.appPrimary,
+    iconTheme: IconThemeData(
+      color: ThemeColors.primary,
       size: ThemeSizes.l,
     ),
     scaffoldBackgroundColor: ThemeColors.background,
