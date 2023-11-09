@@ -4,11 +4,31 @@ import 'package:flutter/material.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 
 /// Function to use in `MaterialApp()` to get main theme
-ThemeData getSnowflakeThemeData(ThemeMode mode) {
+/// [mode] defines whether the theme is light or dark
+/// [appColors] defines colors that are specific to the app
+ThemeData getSnowflakeThemeData(
+  ThemeMode mode,
+  ({
+    Color primary,
+    Color onPrimary,
+    Color secondary,
+    Color onSecondary,
+    Color background,
+    Color onBackground,
+  })? appColors,
+) {
   final fallbackTheme = ThemeData.fallback();
 
   return fallbackTheme.copyWith(
     brightness: mode == ThemeMode.dark ? Brightness.dark : Brightness.light,
+    colorScheme: ColorScheme.fromSwatch().copyWith(
+      primary: appColors?.primary,
+      onPrimary: appColors?.onPrimary,
+      secondary: appColors?.secondary,
+      onSecondary: appColors?.onSecondary,
+      background: appColors?.background,
+      onBackground: appColors?.onBackground,
+    ),
     useMaterial3: true,
     appBarTheme: AppBarTheme(
       backgroundColor: ThemeColors.background,
