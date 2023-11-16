@@ -18,24 +18,24 @@ class ThemeColors {
       Theme.of(ctx).colorScheme.onBackground;
 
   // Painting colors
-  static Color black = const Color(0xFF000000);
-  static Color white = const Color(0xFFFFFFFF);
-  static Color lightGrey = const Color(0xFFececec);
-  static Color darkGrey = const Color(0xFF9D9D9D);
+  static const Color black = Color(0xFF000000);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color lightGrey = Color(0xFFececec);
+  static const Color darkGrey = Color(0xFF9D9D9D);
 
   // App text colors
   static Color defaultText(BuildContext ctx) => onBackground(ctx);
 
   // App status colors
-  static Color statusError = const Color(0xFFFDE6EE);
-  static Color onStatusError = const Color(0xFFF50A42);
-  static Color statusWarning = const Color(0xFFFFFAE5);
-  static Color onStatusWarning = const Color(0xFFDD960D);
-  static Color statusInfo = lightGrey;
+  static const Color statusError = Color(0xFFFDE6EE);
+  static const Color onStatusError = Color(0xFFF50A42);
+  static const Color statusWarning = Color(0xFFFFFAE5);
+  static const Color onStatusWarning = Color(0xFFDD960D);
+  static const Color statusInfo = lightGrey;
   static Color onStatusInfo(BuildContext ctx) => defaultText(ctx);
-  static Color statusSuccess = const Color(0xFFEBFBF1);
-  static Color onStatusSuccess = const Color(0xFF00966D);
+  static const Color statusSuccess = Color(0xFFEBFBF1);
+  static const Color onStatusSuccess = Color(0xFF00966D);
 
   // Other app colors
-  static Color debug = const Color(0xFF34c85a);
+  static const Color debug = Color(0xFF34c85a);
 }
