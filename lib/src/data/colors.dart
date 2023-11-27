@@ -20,8 +20,11 @@ class ThemeColors {
   // Painting colors
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
-  static const Color lightGrey = Color(0xFFececec);
-  static const Color darkGrey = Color(0xFF9D9D9D);
+  static const grey10 = Color(0xFFE6E6E6);
+  static const grey20 = Color(0xFFCCCCCC);
+  static const grey40 = Color(0xFF999999);
+  static const grey60 = Color(0xFF666666);
+  static const grey80 = Color(0xFF333333);
 
   // App text colors
   static Color defaultText(BuildContext ctx) => onBackground(ctx);
@@ -31,7 +34,7 @@ class ThemeColors {
   static const Color onStatusError = Color(0xFFF50A42);
   static const Color statusWarning = Color(0xFFFFFAE5);
   static const Color onStatusWarning = Color(0xFFDD960D);
-  static const Color statusInfo = lightGrey;
+  static const Color statusInfo = grey10;
   static Color onStatusInfo(BuildContext ctx) => defaultText(ctx);
   static const Color statusSuccess = Color(0xFFEBFBF1);
   static const Color onStatusSuccess = Color(0xFF00966D);

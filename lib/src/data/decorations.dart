@@ -10,7 +10,7 @@ class ThemeDecorations {
     borderRadius: ThemeRadius.m.asBorderRadius,
     boxShadow: <BoxShadow>[
       BoxShadow(
-        color: ThemeColors.darkGrey.withOpacity(0.5),
+        color: ThemeColors.grey60.withOpacity(0.5),
         offset: const Offset(0, 3), // changes position of shadow
       ),
     ],
