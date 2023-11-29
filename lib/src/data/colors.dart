@@ -30,14 +30,14 @@ class ThemeColors {
   static Color defaultText(BuildContext ctx) => onBackground(ctx);
 
   // App status colors
-  static const Color statusError = Color(0xFFFDE6EE);
-  static const Color onStatusError = Color(0xFFF50A42);
-  static const Color statusWarning = Color(0xFFFFFAE5);
-  static const Color onStatusWarning = Color(0xFFDD960D);
-  static const Color statusInfo = grey10;
-  static Color onStatusInfo(BuildContext ctx) => defaultText(ctx);
-  static const Color statusSuccess = Color(0xFFEBFBF1);
-  static const Color onStatusSuccess = Color(0xFF00966D);
+  static const Color statusError = Color(0xFFF50A42);
+  static const Color lightStatusError = Color(0xFFFDE6EE);
+  static const Color statusWarning = Color(0xFFDD960D);
+  static const Color lightStatusWarning = Color(0xFFFFFAE5);
+  static const Color statusInfo = grey60;
+  static Color lightStatusInfo = grey10;
+  static const Color statusSuccess = Color(0xFF00966D);
+  static const Color lightStatusSuccess = Color(0xFFEBFBF1);
 
   // Other app colors
   static const Color debug = Color(0xFF34c85a);

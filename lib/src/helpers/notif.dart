@@ -6,40 +6,52 @@ import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 enum ToastType {
   /// Basic messages
   basic,
+
   /// Success messages
   success,
+
+  /// Warning messages
+  warning,
+
   /// Error messages
   error,
 }
 
 /// A class that contains all the methods to show notifications
 class Notif {
-
   /// Show a toast message
   static void showToast(
-    BuildContext context,
     String message, {
+    required BuildContext context,
     ToastType? type,
     Duration? duration,
   }) {
     BotToast.showText(
       text: message,
       textStyle: TextStyle(
-        color: type == ToastType.error
-            ? ThemeColors.onStatusError
-            : type == ToastType.success
-                ? ThemeColors.onStatusSuccess
-                : ThemeColors.onStatusInfo(context),
+        color: _getStatusColor(type, !context.isDarkMode),
         fontSize: ThemeSizes.xl,
         fontWeight: FontWeight.bold,
       ),
       align: Alignment.bottomCenter,
       crossPage: true,
-      contentColor: type == ToastType.error
-          ? ThemeColors.statusError
-          : type == ToastType.success
-              ? ThemeColors.statusSuccess
-              : ThemeColors.statusInfo,
+      contentColor: _getStatusColor(type, context.isDarkMode),
     );
+  }
+
+  static Color _getStatusColor(ToastType? type, bool isLight) {
+    return type == ToastType.error
+        ? (isLight ? ThemeColors.lightStatusError : ThemeColors.statusError)
+        : type == ToastType.success
+            ? (isLight
+                ? ThemeColors.lightStatusSuccess
+                : ThemeColors.statusSuccess)
+            : type == ToastType.warning
+                ? (isLight
+                    ? ThemeColors.lightStatusWarning
+                    : ThemeColors.statusWarning)
+                : (isLight
+                    ? ThemeColors.lightStatusInfo
+                    : ThemeColors.statusInfo);
   }
 }

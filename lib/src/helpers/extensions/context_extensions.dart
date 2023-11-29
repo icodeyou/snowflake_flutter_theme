@@ -6,9 +6,13 @@ extension ContextExtensions on BuildContext {
   /// Show a toast message
   void showToast(
     String message, {
+    required BuildContext context,
     ToastType? type,
     Duration? duration,
   }) {
-    Notif.showToast(this, message, type: type, duration: duration);
+    Notif.showToast(message, context: context, type: type, duration: duration);
   }
+
+  /// Return true if the app is in dark mode
+  bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
 }

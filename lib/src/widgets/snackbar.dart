@@ -145,13 +145,13 @@ class SnackBarBody extends StatelessWidget {
   Color getOnBackgroundColor(BuildContext context) {
     switch (type) {
       case SnackBarType.error:
-        return ThemeColors.onStatusError;
+        return ThemeColors.lightStatusError;
       case SnackBarType.success:
-        return ThemeColors.onStatusSuccess;
+        return ThemeColors.lightStatusSuccess;
       case SnackBarType.warning:
-        return ThemeColors.onStatusWarning;
+        return ThemeColors.lightStatusWarning;
       case SnackBarType.info:
-        return ThemeColors.onStatusInfo(context);
+        return ThemeColors.lightStatusInfo(context);
     }
   }
 
