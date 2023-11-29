@@ -5,12 +5,11 @@ import 'package:snowflake_flutter_theme/src/helpers/notif.dart';
 extension ContextExtensions on BuildContext {
   /// Show a toast message
   void showToast(
-    String message,
-    BuildContext context, {
+    String message,{
     ToastType? type,
     Duration? duration,
   }) {
-    Notif.showToast(message, context: context, type: type, duration: duration);
+    Notif.showToast(message, context: this, type: type, duration: duration);
   }
 
   /// Return true if the app is in dark mode
