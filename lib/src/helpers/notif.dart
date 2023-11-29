@@ -33,7 +33,7 @@ class Notif {
         fontSize: ThemeSizes.xl,
         fontWeight: FontWeight.bold,
       ),
-      align: Alignment.center,
+      align: Alignment.bottomCenter,
       crossPage: true,
       contentColor: type == ToastType.error
           ? ThemeColors.statusError
