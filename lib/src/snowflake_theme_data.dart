@@ -57,8 +57,8 @@ ThemeData getSnowflakeThemeData({
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        primary: appColors.primary,
-        onPrimary: appColors.onPrimary,
+        foregroundColor: appColors.onPrimary,
+        backgroundColor: appColors.primary,
         textStyle: const TextStyle(
           fontSize: ThemeFontSizes.s,
           fontWeight: FontWeight.w500,
