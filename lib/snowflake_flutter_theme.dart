@@ -8,6 +8,10 @@ export 'src/data/radius.dart' show ThemeRadius, ThemeRadiusExtensions;
 export 'src/data/sizes.dart'
     show EwaSizesInsetsExtensions, ThemeSizes, ThemeSizesExtensions;
 
+/// Helpers
+export 'src/helpers/extensions/context_extensions.dart';
+export 'src/helpers/notif.dart';
+
 /// Main methods
 export 'src/snowflake_theme_data.dart' show getSnowflakeThemeData;
 
