@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
+import 'package:snowflake_flutter_theme/src/data/font_sizes.dart';
 
 /// Function to use in `MaterialApp()` to get main theme
 /// [mode] defines whether the theme is light or dark
@@ -59,7 +60,7 @@ ThemeData getSnowflakeThemeData({
         primary: appColors.primary,
         onPrimary: appColors.onPrimary,
         textStyle: const TextStyle(
-          fontSize: AppFontSizes.s,
+          fontSize: ThemeFontSizes.s,
           fontWeight: FontWeight.w500,
           color: ThemeColors.white,
         ),

@@ -1,28 +1,5 @@
 import 'package:flutter/material.dart';
-
-/// This class defines all kinds of [Text] sizes
-class AppFontSizes {
-  /// Font size XXS
-  static const double xxs = 10;
-
-  /// Font size XS
-  static const double xs = 12;
-
-  /// Font size S
-  static const double s = 15;
-
-  /// Font size M
-  static const double m = 18;
-
-  /// Font size L
-  static const double l = 22;
-
-  /// Font size XL
-  static const double xl = 27;
-
-  /// Font size XXL
-  static const double xxl = 32;
-}
+import 'package:snowflake_flutter_theme/src/data/font_sizes.dart';
 
 /// This class defines all kinds of [Text]
 class AppText extends StatelessWidget {
@@ -79,7 +56,7 @@ class AppText extends StatelessWidget {
           !italic || fontStyle == null,
           'If italic is set to true, fontStyle must be null',
         ),
-        fontSize = AppFontSizes.xxs;
+        fontSize = ThemeFontSizes.xxs;
 
   /// The constructor XS
   /// It gives an XS value for the parameter [fontSize]
@@ -105,7 +82,7 @@ class AppText extends StatelessWidget {
           !italic || fontStyle == null,
           'If italic is set to true, fontStyle must be null',
         ),
-        fontSize = AppFontSizes.xs;
+        fontSize = ThemeFontSizes.xs;
 
   /// The constructor S
   /// It gives an S value for the parameter [fontSize]
@@ -131,7 +108,7 @@ class AppText extends StatelessWidget {
           !italic || fontStyle == null,
           'If italic is set to true, fontStyle must be null',
         ),
-        fontSize = AppFontSizes.s;
+        fontSize = ThemeFontSizes.s;
 
   /// The constructor M
   /// It gives an M value for the parameter [fontSize]
@@ -157,7 +134,7 @@ class AppText extends StatelessWidget {
           !italic || fontStyle == null,
           'If italic is set to true, fontStyle must be null',
         ),
-        fontSize = AppFontSizes.m;
+        fontSize = ThemeFontSizes.m;
 
   /// The constructor L
   /// It gives an L value for the parameter [fontSize]
@@ -183,7 +160,7 @@ class AppText extends StatelessWidget {
           !italic || fontStyle == null,
           'If italic is set to true, fontStyle must be null',
         ),
-        fontSize = AppFontSizes.l;
+        fontSize = ThemeFontSizes.l;
 
   /// The constructor XL
   /// It gives an XL value for the parameter [fontSize]
@@ -209,7 +186,7 @@ class AppText extends StatelessWidget {
           !italic || fontStyle == null,
           'If italic is set to true, fontStyle must be null',
         ),
-        fontSize = AppFontSizes.xl;
+        fontSize = ThemeFontSizes.xl;
 
   /// The constructor XXL
   /// It gives an XXL value for the parameter [fontSize]
@@ -235,7 +212,7 @@ class AppText extends StatelessWidget {
           !italic || fontStyle == null,
           'If italic is set to true, fontStyle must be null',
         ),
-        fontSize = AppFontSizes.xxl;
+        fontSize = ThemeFontSizes.xxl;
 
   /// Text to display in the widget
   final String text;
