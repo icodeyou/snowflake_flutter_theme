@@ -5,8 +5,8 @@ import 'package:snowflake_flutter_theme/src/helpers/notif.dart';
 extension ContextExtensions on BuildContext {
   /// Show a toast message
   void showToast(
-    String message, {
-    required BuildContext context,
+    String message,
+    BuildContext context, {
     ToastType? type,
     Duration? duration,
   }) {
