@@ -22,16 +22,40 @@ ThemeData getSnowflakeThemeData({
 
   return fallbackTheme.copyWith(
     useMaterial3: true,
+    brightness: mode == ThemeMode.dark ? Brightness.dark : Brightness.light,
     appBarTheme: AppBarTheme(
       backgroundColor: appColors.background,
       foregroundColor: appColors.onBackground,
       elevation: 0,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedItemColor: appColors.primary,
-      unselectedItemColor: appColors.onBackground,
+      selectedItemColor: appColors.onBackground,
+      unselectedItemColor: appColors.onBackground.withAlpha(120),
+      backgroundColor: appColors.background,
     ),
-    brightness: mode == ThemeMode.dark ? Brightness.dark : Brightness.light,
+    navigationBarTheme: NavigationBarThemeData(
+      height: 65,
+      backgroundColor: appColors.background,
+      indicatorColor: appColors.secondary,
+      iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
+        (states) => IconThemeData(
+          color: states.contains(MaterialState.selected)
+              ? ThemeColors.white
+              : appColors.secondary,
+        ),
+      ),
+      labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
+        (states) {
+          final isSelected = states.contains(MaterialState.selected);
+          return TextStyle(
+          fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+          color: appColors.onBackground.withAlpha(
+            isSelected ? 255 : 80,
+          ),
+        );
+        },
+      ),
+    ),
     cardTheme: fallbackTheme.cardTheme.copyWith(
       color: ThemeColors.white,
       shadowColor: ThemeColors.grey60,
