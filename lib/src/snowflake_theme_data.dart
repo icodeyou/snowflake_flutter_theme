@@ -36,12 +36,12 @@ ThemeData getSnowflakeThemeData({
     navigationBarTheme: NavigationBarThemeData(
       height: 65,
       backgroundColor: appColors.background,
-      indicatorColor: appColors.secondary,
+      indicatorColor: appColors.primary,
       iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
         (states) => IconThemeData(
           color: states.contains(MaterialState.selected)
               ? ThemeColors.white
-              : appColors.secondary,
+              : appColors.primary,
         ),
       ),
       labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
@@ -116,8 +116,8 @@ ThemeData getSnowflakeThemeData({
       ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: appColors.primary,
-      foregroundColor: appColors.onPrimary,
+      backgroundColor: appColors.secondary,
+      foregroundColor: appColors.onSecondary,
     ),
     iconTheme: IconThemeData(
       color: appColors.primary,
