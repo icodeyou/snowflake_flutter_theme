@@ -21,29 +21,40 @@ ThemeData getSnowflakeThemeData({
   final fallbackTheme = ThemeData.fallback(useMaterial3: true);
 
   return fallbackTheme.copyWith(
-    brightness: mode == ThemeMode.dark ? Brightness.dark : Brightness.light,
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      primary: appColors.primary,
-      onPrimary: appColors.onPrimary,
-      secondary: appColors.secondary,
-      onSecondary: appColors.onSecondary,
-      background: appColors.background,
-      onBackground: appColors.onBackground,
-      outline: Colors.transparent,
-    ),
-    scaffoldBackgroundColor: appColors.background,
     useMaterial3: true,
+    brightness: mode == ThemeMode.dark ? Brightness.dark : Brightness.light,
     appBarTheme: AppBarTheme(
       backgroundColor: appColors.background,
+      foregroundColor: appColors.onBackground,
       elevation: 0,
     ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: appColors.primary,
-      foregroundColor: appColors.onPrimary,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedItemColor: appColors.onBackground,
+      unselectedItemColor: appColors.onBackground.withAlpha(120),
+      backgroundColor: appColors.background,
     ),
-    textTheme: fallbackTheme.textTheme.apply(
-      bodyColor: appColors.onBackground,
-      displayColor: appColors.onBackground,
+    navigationBarTheme: NavigationBarThemeData(
+      height: 65,
+      backgroundColor: appColors.background,
+      indicatorColor: appColors.primary,
+      iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
+        (states) => IconThemeData(
+          color: states.contains(MaterialState.selected)
+              ? ThemeColors.white
+              : appColors.primary,
+        ),
+      ),
+      labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
+        (states) {
+          final isSelected = states.contains(MaterialState.selected);
+          return TextStyle(
+          fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+          color: appColors.onBackground.withAlpha(
+            isSelected ? 255 : 80,
+          ),
+        );
+        },
+      ),
     ),
     cardTheme: fallbackTheme.cardTheme.copyWith(
       color: ThemeColors.white,
@@ -54,6 +65,40 @@ ThemeData getSnowflakeThemeData({
         borderRadius: ThemeRadius.m.asBorderRadius,
         side: BorderSide(color: appColors.onBackground),
       ),
+    ),
+    checkboxTheme: CheckboxThemeData(
+      fillColor: MaterialStateProperty.all(appColors.primary),
+    ),
+    chipTheme: ChipThemeData(
+      backgroundColor: appColors.background,
+      labelStyle: TextStyle(color: appColors.onBackground),
+      disabledColor: ThemeColors.grey40,
+      selectedColor: appColors.primary,
+      secondarySelectedColor: appColors.secondary,
+      secondaryLabelStyle: TextStyle(color: appColors.onSecondary),
+      elevation: 0,
+      checkmarkColor: appColors.primary,
+      surfaceTintColor: appColors.primary,
+      deleteIconColor: appColors.primary,
+    ),
+    colorScheme: ColorScheme.fromSwatch().copyWith(
+      primary: appColors.primary,
+      onPrimary: appColors.onPrimary,
+      secondary: appColors.secondary,
+      onSecondary: appColors.onSecondary,
+      background: appColors.background,
+      onBackground: appColors.onBackground,
+      outline: Colors.transparent,
+    ),
+    dialogTheme: DialogTheme(
+      backgroundColor: appColors.background,
+      titleTextStyle: TextStyle(color: appColors.primary),
+      contentTextStyle: TextStyle(color: appColors.onBackground),
+    ),
+    dividerTheme: const DividerThemeData(
+      color: ThemeColors.grey10,
+      space: ThemeSizes.s,
+      thickness: 1,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -70,10 +115,17 @@ ThemeData getSnowflakeThemeData({
         ),
       ),
     ),
-    textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(
-        foregroundColor: appColors.primary,
-      ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: appColors.secondary,
+      foregroundColor: appColors.onSecondary,
+    ),
+    iconTheme: IconThemeData(
+      color: appColors.primary,
+      size: ThemeSizes.l,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: appColors.background,
+      focusColor: appColors.primary,
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
@@ -81,58 +133,31 @@ ThemeData getSnowflakeThemeData({
         side: BorderSide(color: appColors.primary),
       ),
     ),
-    iconTheme: IconThemeData(
-      color: appColors.primary,
-      size: ThemeSizes.l,
-    ),
-    checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStateProperty.all(appColors.primary),
-    ),
     radioTheme: RadioThemeData(
       fillColor: MaterialStateProperty.all(appColors.primary),
+    ),
+    scaffoldBackgroundColor: appColors.background,
+    snackBarTheme: SnackBarThemeData(
+      backgroundColor: appColors.secondary,
+      contentTextStyle: TextStyle(color: appColors.onSecondary),
     ),
     switchTheme: SwitchThemeData(
       thumbColor: MaterialStateProperty.all(appColors.primary),
       trackColor: MaterialStateProperty.all(appColors.secondary),
       trackOutlineColor: MaterialStateProperty.all(appColors.secondary),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      fillColor: appColors.background,
-      focusColor: appColors.primary,
-    ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedItemColor: appColors.primary,
-      unselectedItemColor: appColors.onBackground,
-    ),
-    dialogTheme: DialogTheme(
-      backgroundColor: appColors.background,
-      titleTextStyle: TextStyle(color: appColors.primary),
-      contentTextStyle: TextStyle(color: appColors.onBackground),
-    ),
-    snackBarTheme: SnackBarThemeData(
-      backgroundColor: appColors.secondary,
-      contentTextStyle: TextStyle(color: appColors.onSecondary),
-    ),
-    dividerTheme: const DividerThemeData(
-      color: ThemeColors.grey10,
-      space: ThemeSizes.s,
-      thickness: 1,
-    ),
     tabBarTheme: TabBarTheme(
       labelColor: appColors.primary,
       unselectedLabelColor: appColors.onBackground,
     ),
-    chipTheme: ChipThemeData(
-      backgroundColor: appColors.background,
-      labelStyle: TextStyle(color: appColors.onBackground),
-      disabledColor: ThemeColors.grey40,
-      selectedColor: appColors.primary,
-      secondarySelectedColor: appColors.secondary,
-      secondaryLabelStyle: TextStyle(color: appColors.onSecondary),
-      elevation: 0,
-      checkmarkColor: appColors.primary,
-      surfaceTintColor: appColors.primary,
-      deleteIconColor: appColors.primary,
+    textTheme: fallbackTheme.textTheme.apply(
+      bodyColor: appColors.onBackground,
+      displayColor: appColors.onBackground,
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: appColors.primary,
+      ),
     ),
   );
 }

@@ -151,7 +151,7 @@ class SnackBarBody extends StatelessWidget {
       case SnackBarType.warning:
         return ThemeColors.lightStatusWarning;
       case SnackBarType.info:
-        return ThemeColors.lightStatusInfo(context);
+        return ThemeColors.lightStatusInfo;
     }
   }
 
