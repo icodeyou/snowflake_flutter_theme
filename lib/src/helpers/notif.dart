@@ -68,7 +68,13 @@ class Notif {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(title),
+          title: Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: ThemeSizes.l,
+            ),
+          ),
           content: Text(content),
           actions: [
             TextButton(
