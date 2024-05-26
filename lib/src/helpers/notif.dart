@@ -54,4 +54,40 @@ class Notif {
                     ? ThemeColors.lightStatusInfo
                     : ThemeColors.statusInfo);
   }
+
+  static void showPopup({
+    required BuildContext context,
+    required String title,
+    required String content,
+    required String confirmButton,
+    required String cancelButton,
+    required VoidCallback onConfirm,
+    VoidCallback? onCancelBeforePop,
+  }) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(content),
+          actions: [
+            TextButton(
+              onPressed: () {
+                onCancelBeforePop?.call();
+                Navigator.of(context).pop();
+              },
+              child: Text(cancelButton),
+            ),
+            TextButton(
+              onPressed: () {
+                onConfirm();
+                Navigator.of(context).pop();
+              },
+              child: Text(confirmButton),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
