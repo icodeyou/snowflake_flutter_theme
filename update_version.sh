@@ -2,6 +2,14 @@
 
 echo "🚀 Let's update the Snowflake version !"
 
+# Function to check for uncommitted changes
+check_uncommitted_changes() {
+    if ! git diff-index --quiet HEAD --; then
+        echo "Error: You have uncommitted changes. Please commit or stash them before running this script."
+        exit 1
+    fi
+}
+
 # Function to check if a branch exists
 check_branch_exists() {
     local branch=$1
@@ -11,31 +19,36 @@ check_branch_exists() {
     fi
 }
 
-# Function to check for uncommitted changes
-check_uncommitted_changes() {
-    if ! git diff-index --quiet HEAD --; then
-        echo "Error: You have uncommitted changes. Please commit or stash them before running this script."
+# Function to get the latest tag
+get_latest_tag() {
+    git fetch --tags || exit
+    latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+    if [ -z "$latest_tag" ]; then
+        echo "Error: No tags found in the repository."
         exit 1
     fi
+    echo $latest_tag
 }
 
+# Check for uncommitted changes
 check_uncommitted_changes
 
-git checkout master
+# Get the latest tag
+latest_tag=$(get_latest_tag)
+echo "The latest version is $latest_tag"
 
-# 🚀 Prompt for old version, new version, and old build number
-read -p "Enter the old version (e.g., 0.0.6): " old_version
-read -p "Enter the new version (e.g., 0.0.7): " new_version
-read -p "Enter the old build number (e.g., 6): " old_build_number
+# Prompt for the new version and old build number
+read -p "Enter the new version : " new_version
+read -p "Enter the new build number : " new_build_number
 
 # Increment the build number
-new_build_number=$((old_build_number + 1))
+next_build_number=$((new_build_number + 1))
 
 # Check if the old build branch exists
-check_branch_exists "v${old_build_number}"
+check_branch_exists "v${new_build_number}"
 
-# Merge branch v${old_build_number} with the commit message 'new status colors'
-git merge "v${old_build_number}" -m 'new status colors' --no-ff || exit
+# Merge branch v${new_build_number} with the commit message 'new status colors'
+git merge "v${new_build_number}" -m 'new status colors' --no-ff || exit
 
 # Fetch the latest changes from the remote repository and display the log
 git pull || exit
@@ -48,7 +61,7 @@ git tag "${old_version}" -m 'new status colors' || exit
 git push --tags || exit
 
 # Update the version and build number in pubspec.yaml
-sed -i '' "s/version: ${old_version}+[0-9]*/version: ${new_version}+${new_build_number}/" pubspec.yaml || exit
+sed -i '' "s/version: ${old_version}+[0-9]*/version: ${new_version}+${next_build_number}/" pubspec.yaml || exit
 
 # Commit the changes with the message '[DELIVERY ${old_version}]: upgrade version to ${new_version}'
 git commit -am "[DELIVERY ${old_version}]: upgrade version to ${new_version}" || exit
@@ -57,7 +70,7 @@ git commit -am "[DELIVERY ${old_version}]: upgrade version to ${new_version}" ||
 git push || exit
 
 # Create and switch to a new branch v${new_build_number}
-git checkout -b "v${new_build_number}" || exit
+git checkout -b "v${next_build_number}" || exit
 
 # Print a message indicating completion
 echo "Done. You can do 'cu' in your project"
