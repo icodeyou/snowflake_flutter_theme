@@ -45,7 +45,7 @@ echo "The latest version is $old_version"
 # Prompt for the new version and old build number
 read -p "Enter the new version : " new_version
 read -p "Enter the next version : " next_version
-read -p "Enter the new build number : " next_build_number
+read -p "Enter the next build number : " next_build_number
 
 # Increment the build number
 new_build_number=$((next_build_number - 1))
@@ -79,4 +79,8 @@ git push || exit
 git checkout -b "v${next_build_number}" || exit
 
 # Print a message indicating completion
-echo "Done. You can do 'cu' in your project"
+echo ""
+echo "✅ Done."
+echo ""
+echo "⚠️ Don't forget to update hello_riverpod with the new version : ${new_version}"
+
