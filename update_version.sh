@@ -72,11 +72,14 @@ sed -i '' "s/version: ${new_version}+[0-9]*/version: ${next_version}+${next_buil
 # Commit the changes with the message '[DELIVERY ${old_version}]: upgrade version to ${new_version}'
 git commit -am "[DELIVERY ${old_version}]: upgrade version to ${new_version}" || exit
 
-# Push the changes to the remote repository
+# Push the changes to master
 git push || exit
 
 # Create and switch to a new branch v${new_build_number}
 git checkout -b "v${next_build_number}" || exit
+
+# Push new branch
+git push || exit
 
 # Print a message indicating completion
 echo ""
