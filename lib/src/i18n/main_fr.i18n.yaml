@@ -1,0 +1,7 @@
+validators:
+  invalidInput: Invalid value
+  wholeNumber: Must be a whole number
+  decimalNumber: Must be a decimal number
+  email: Invalid email address
+  url: Invalid URL
+  date: The date is invalid

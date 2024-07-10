@@ -20,11 +20,12 @@ class ThemeColors {
   // Painting colors
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
-  static const grey10 = Color(0xFFE6E6E6);
-  static const grey20 = Color(0xFFCCCCCC);
-  static const grey40 = Color(0xFF999999);
-  static const grey60 = Color(0xFF666666);
-  static const grey80 = Color(0xFF333333);
+  static const grey10 = Color.fromARGB(255, 230, 230, 230);
+  static const grey20 = Color.fromARGB(255, 204, 204, 204);
+  static const grey30 = Color.fromARGB(255, 178, 178, 178);
+  static const grey40 = Color.fromARGB(255, 153, 153, 153);
+  static const grey60 = Color.fromARGB(255, 102, 102, 102);
+  static const grey80 = Color.fromARGB(255, 51, 51, 51);
 
   // App text colors
   static Color defaultText(BuildContext ctx) => onBackground(ctx);
