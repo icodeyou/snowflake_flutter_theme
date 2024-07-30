@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 12 (6 per locale)
+/// Strings: 14 (7 per locale)
 ///
-/// Built on 2024-07-10 at 17:10 UTC
+/// Built on 2024-07-30 at 08:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -166,6 +166,7 @@ class _TranslationsValidatorsEn {
 
 	// Translations
 	String get invalidInput => 'Invalid value';
+	String get required => 'This field is required';
 	String get wholeNumber => 'Must be a whole number';
 	String get decimalNumber => 'Must be a decimal number';
 	String get email => 'Invalid email address';
@@ -207,12 +208,13 @@ class _TranslationsValidatorsFr implements _TranslationsValidatorsEn {
 	@override final _TranslationsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get invalidInput => 'Invalid value';
-	@override String get wholeNumber => 'Must be a whole number';
-	@override String get decimalNumber => 'Must be a decimal number';
-	@override String get email => 'Invalid email address';
-	@override String get url => 'Invalid URL';
-	@override String get date => 'The date is invalid';
+	@override String get invalidInput => 'Valeur invalide';
+	@override String get required => 'Ce champ est requis';
+	@override String get wholeNumber => 'Doit être un nombre entier';
+	@override String get decimalNumber => 'Doit être un nombre décimal';
+	@override String get email => 'Adresse email invalide';
+	@override String get url => 'URL invalide';
+	@override String get date => 'La date est invalide';
 }
 
 /// Flat map(s) containing all translations.
@@ -222,6 +224,7 @@ extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'validators.invalidInput': return 'Invalid value';
+			case 'validators.required': return 'This field is required';
 			case 'validators.wholeNumber': return 'Must be a whole number';
 			case 'validators.decimalNumber': return 'Must be a decimal number';
 			case 'validators.email': return 'Invalid email address';
@@ -235,12 +238,13 @@ extension on Translations {
 extension on _TranslationsFr {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'validators.invalidInput': return 'Invalid value';
-			case 'validators.wholeNumber': return 'Must be a whole number';
-			case 'validators.decimalNumber': return 'Must be a decimal number';
-			case 'validators.email': return 'Invalid email address';
-			case 'validators.url': return 'Invalid URL';
-			case 'validators.date': return 'The date is invalid';
+			case 'validators.invalidInput': return 'Valeur invalide';
+			case 'validators.required': return 'Ce champ est requis';
+			case 'validators.wholeNumber': return 'Doit être un nombre entier';
+			case 'validators.decimalNumber': return 'Doit être un nombre décimal';
+			case 'validators.email': return 'Adresse email invalide';
+			case 'validators.url': return 'URL invalide';
+			case 'validators.date': return 'La date est invalide';
 			default: return null;
 		}
 	}

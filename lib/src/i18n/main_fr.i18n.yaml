@@ -1,7 +1,8 @@
 validators:
-  invalidInput: Invalid value
-  wholeNumber: Must be a whole number
-  decimalNumber: Must be a decimal number
-  email: Invalid email address
-  url: Invalid URL
-  date: The date is invalid
+  invalidInput: Valeur invalide
+  required: Ce champ est requis
+  wholeNumber: Doit être un nombre entier
+  decimalNumber: Doit être un nombre décimal
+  email: Adresse email invalide
+  url: URL invalide
+  date: La date est invalide

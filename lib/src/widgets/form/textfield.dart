@@ -24,6 +24,7 @@ class AppTextField extends FormBuilderField<String> {
     this.type = SmartFieldType.raw,
     GlobalKey<AppTextFieldState>? smartKey,
     SmartController? smartController,
+    bool required = false,
     String name = undefinedSmartFieldKey,
     InputDecoration? decoration,
     String? label,
@@ -35,9 +36,16 @@ class AppTextField extends FormBuilderField<String> {
           key: smartKey,
           name: name,
           validator: (value) {
-            if (value == null) {
-              return null;
+            // Required check
+            if (value == null || value.isEmpty) {
+              if (required) {
+                return t.validators.required;
+              } else {
+                return null;
+              }
             }
+
+            // Type check
             String? typeCheck;
             switch (type) {
               case SmartFieldType.raw:
@@ -57,6 +65,8 @@ class AppTextField extends FormBuilderField<String> {
               case SmartFieldType.date:
                 typeCheck = isDate(value) ? null : t.validators.date;
             }
+
+            // Return validator
             return typeCheck ?? validator?.call(value);
           },
           builder: (field) {

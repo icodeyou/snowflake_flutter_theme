@@ -1,5 +1,6 @@
 validators:
   invalidInput: Invalid value
+  required: This field is required
   wholeNumber: Must be a whole number
   decimalNumber: Must be a decimal number
   email: Invalid email address
