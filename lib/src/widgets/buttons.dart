@@ -62,7 +62,7 @@ class AppButton extends StatelessWidget {
         case ButtonType.primary:
           return color ?? ThemeColors.primary(context);
         case ButtonType.secondary:
-          return ThemeColors.background(context);
+          return Colors.transparent;
       }
     }();
 
@@ -71,7 +71,7 @@ class AppButton extends StatelessWidget {
         case ButtonType.primary:
           return ThemeColors.white;
         case ButtonType.secondary:
-          return color ?? ThemeColors.background(context);
+          return color ?? Colors.transparent;
       }
     }();
 
