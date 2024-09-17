@@ -19,6 +19,7 @@ class AppButton extends StatelessWidget {
     this.icon,
     this.label,
     this.color,
+    this.radius,
     this.iconPosition = IconPosition.left,
   })  : buttonType = ButtonType.primary,
         thickness = null,
@@ -30,6 +31,7 @@ class AppButton extends StatelessWidget {
     this.icon,
     this.label,
     this.color,
+    this.radius,
     this.thickness,
     this.outlineColor,
     this.iconPosition = IconPosition.left,
@@ -41,6 +43,7 @@ class AppButton extends StatelessWidget {
   final ButtonType buttonType;
   final IconPosition iconPosition;
   final Color? color;
+  final double? radius;
 
   final double? thickness;
   final Color? outlineColor;
@@ -73,7 +76,9 @@ class AppButton extends StatelessWidget {
       }
     }();
 
-    final buttonRadius = ThemeRadius.xs.asBorderRadius;
+    final buttonRadius = radius == null
+        ? ThemeRadius.xs.asBorderRadius
+        : Radius.circular(radius!).asBorderRadius;
 
     final style = () {
       switch (buttonType) {
