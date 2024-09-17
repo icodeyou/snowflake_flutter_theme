@@ -20,7 +20,9 @@ class AppButton extends StatelessWidget {
     this.label,
     this.color,
     this.iconPosition = IconPosition.left,
-  }) : buttonType = ButtonType.primary;
+  })  : buttonType = ButtonType.primary,
+        thickness = null,
+        outlineColor = null;
 
   const AppButton.secondary({
     required this.onPressed,
@@ -28,6 +30,8 @@ class AppButton extends StatelessWidget {
     this.icon,
     this.label,
     this.color,
+    this.thickness,
+    this.outlineColor,
     this.iconPosition = IconPosition.left,
   }) : buttonType = ButtonType.secondary;
 
@@ -37,6 +41,9 @@ class AppButton extends StatelessWidget {
   final ButtonType buttonType;
   final IconPosition iconPosition;
   final Color? color;
+
+  final double? thickness;
+  final Color? outlineColor;
 
   @override
   Widget build(BuildContext context) {
@@ -57,21 +64,12 @@ class AppButton extends StatelessWidget {
       return TextDirection.rtl;
     }();
 
-    final backgroundColor = () {
-      switch (buttonType) {
-        case ButtonType.primary:
-          return color ?? ThemeColors.primary(context);
-        case ButtonType.secondary:
-          return Colors.transparent;
-      }
-    }();
-
     final foregroundColor = () {
       switch (buttonType) {
         case ButtonType.primary:
           return ThemeColors.white;
         case ButtonType.secondary:
-          return color ?? Colors.transparent;
+          return color ?? ThemeColors.primary(context);
       }
     }();
 
@@ -81,16 +79,19 @@ class AppButton extends StatelessWidget {
       switch (buttonType) {
         case ButtonType.primary:
           return ElevatedButton.styleFrom(
-            backgroundColor: ThemeColors.primary(context),
+            backgroundColor: color ?? ThemeColors.primary(context),
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: buttonRadius,
             ),
           );
         case ButtonType.secondary:
-          return ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
+          return OutlinedButton.styleFrom(
             elevation: 0,
+            side: BorderSide(
+              width: thickness ?? 1,
+              color: outlineColor ?? foregroundColor,
+            ),
             shape: RoundedRectangleBorder(
               borderRadius: buttonRadius,
             ),
@@ -138,7 +139,7 @@ class AppButton extends StatelessWidget {
             );
 
           case ButtonType.secondary:
-            return ElevatedButton(
+            return OutlinedButton(
               style: style,
               onPressed: onButtonPress,
               child: buttonChild,
