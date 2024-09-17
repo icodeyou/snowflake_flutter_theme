@@ -18,6 +18,7 @@ class AppButton extends StatelessWidget {
     super.key,
     this.icon,
     this.label,
+    this.fontSize,
     this.color,
     this.radius,
     this.iconPosition = IconPosition.left,
@@ -30,6 +31,7 @@ class AppButton extends StatelessWidget {
     super.key,
     this.icon,
     this.label,
+    this.fontSize,
     this.color,
     this.radius,
     this.thickness,
@@ -39,6 +41,7 @@ class AppButton extends StatelessWidget {
 
   final IconData? icon;
   final String? label;
+  final double? fontSize;
   final void Function()? onPressed;
   final ButtonType buttonType;
   final IconPosition iconPosition;
@@ -123,8 +126,9 @@ class AppButton extends StatelessWidget {
               width: ThemeSizes.s,
             ),
           if (label != null)
-            AppText.l(
+            AppText(
               label,
+              fontSize: fontSize ?? ThemeSizes.l,
               fontWeight: FontWeight.w600,
               color: foregroundColor,
             ),
