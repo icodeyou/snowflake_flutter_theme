@@ -73,7 +73,7 @@ class AppButton extends StatelessWidget {
     final foregroundColor = () {
       switch (buttonType) {
         case ButtonType.primary:
-          return ThemeColors.white;
+          return color == null ? ThemeColors.onPrimary(context) : Colors.white;
         case ButtonType.secondary:
           return color ?? ThemeColors.primary(context);
       }
