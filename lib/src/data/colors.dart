@@ -5,17 +5,18 @@ import 'package:flutter/material.dart';
 
 /// All theme colors are defined in this class
 class ThemeColors {
-  static Color primary(BuildContext ctx) => Theme.of(ctx).colorScheme.primary;
-  static Color onPrimary(BuildContext ctx) =>
-      Theme.of(ctx).colorScheme.onPrimary;
-  static Color secondary(BuildContext ctx) =>
-      Theme.of(ctx).colorScheme.secondary;
-  static Color onSecondary(BuildContext ctx) =>
-      Theme.of(ctx).colorScheme.onSecondary;
-  static Color background(BuildContext ctx) =>
-      Theme.of(ctx).colorScheme.background;
-  static Color onBackground(BuildContext ctx) =>
-      Theme.of(ctx).colorScheme.onBackground;
+  static Color primary(BuildContext context) =>
+      Theme.of(context).colorScheme.primary;
+  static Color onPrimary(BuildContext context) =>
+      Theme.of(context).colorScheme.onPrimary;
+  static Color secondary(BuildContext context) =>
+      Theme.of(context).colorScheme.secondary;
+  static Color onSecondary(BuildContext context) =>
+      Theme.of(context).colorScheme.onSecondary;
+  static Color background(BuildContext context) =>
+      Theme.of(context).colorScheme.surface;
+  static Color onBackground(BuildContext context) =>
+      Theme.of(context).colorScheme.onSurface;
 
   // Painting colors
   static const Color black = Color(0xFF000000);
@@ -28,7 +29,7 @@ class ThemeColors {
   static const grey80 = Color.fromARGB(255, 51, 51, 51);
 
   // App text colors
-  static Color defaultText(BuildContext ctx) => onBackground(ctx);
+  static Color defaultText(BuildContext context) => onBackground(context);
 
   // App status colors
   static const Color statusError = Color(0xFFF50A42);
