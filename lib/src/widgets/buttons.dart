@@ -126,11 +126,14 @@ class AppButton extends StatelessWidget {
               width: ThemeSizes.s,
             ),
           if (label != null)
-            AppText(
-              label,
-              fontSize: fontSize ?? ThemeSizes.l,
-              fontWeight: FontWeight.w600,
-              color: foregroundColor,
+            Padding(
+              padding: ThemeSizes.l.asInsets,
+              child: AppText(
+                label,
+                fontSize: fontSize ?? ThemeSizes.l,
+                fontWeight: FontWeight.w600,
+                color: foregroundColor,
+              ),
             ),
         ],
       );
