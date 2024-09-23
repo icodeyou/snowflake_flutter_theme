@@ -3,6 +3,17 @@ import 'package:flutter/material.dart';
 /// All sizes (height and width, paddings, margins) are defined in this class
 
 class ThemeSizes {
+
+  /// Symmetric padding
+  static EdgeInsets sym({
+    double h = 0,
+    double v = 0,
+  }) =>
+      EdgeInsets.symmetric(
+        horizontal: h,
+        vertical: v,
+      );
+
   /// XXXS size
   static const double xxxs = 2;
 
