@@ -12,6 +12,12 @@ class ThemeRadius {
   
   /// M corners
   static const m = Radius.circular(16);
+
+  /// l corners
+  static const l = Radius.circular(32);
+
+  /// xl corners
+  static const xl = Radius.circular(40);
 }
 
 /// Extensions on Radius
