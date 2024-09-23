@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 /// All sizes (height and width, paddings, margins) are defined in this class
 
 class ThemeSizes {
-
   /// Symmetric padding
   static EdgeInsets sym({
     double h = 0,
@@ -55,4 +54,16 @@ extension EwaSizesInsetsExtensions on EdgeInsets {
 
   /// Remove horizontal borders
   EdgeInsets get verticalOnly => copyWith(right: 0, left: 0);
+
+  /// Override left border
+  EdgeInsets withLeft(double value) => copyWith(left: value);
+
+  /// Override top border
+  EdgeInsets withTop(double value) => copyWith(top: value);
+
+  /// Override right border
+  EdgeInsets withRight(double value) => copyWith(right: value);
+
+  /// Override bottom border
+  EdgeInsets withBottom(double value) => copyWith(bottom: value);
 }
