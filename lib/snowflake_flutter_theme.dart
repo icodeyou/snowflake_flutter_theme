@@ -16,6 +16,7 @@ export 'src/helpers/notif.dart';
 export 'src/snowflake_theme_data.dart' show getSnowflakeThemeData;
 
 /// Widgets
+export 'src/widgets/assets.dart';
 export 'src/widgets/buttons.dart';
 export 'src/widgets/error_details.dart';
 export 'src/widgets/gap.dart';
