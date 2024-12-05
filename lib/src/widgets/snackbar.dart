@@ -183,7 +183,7 @@ class SnackBarBody extends StatelessWidget {
     return TextButton(
       onPressed: onTap,
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(EdgeInsets.zero),
+        padding: WidgetStateProperty.all(EdgeInsets.zero),
       ),
       child: content,
     );

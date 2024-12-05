@@ -21,7 +21,6 @@ ThemeData getSnowflakeThemeData({
   final fallbackTheme = ThemeData.fallback(useMaterial3: true);
 
   return fallbackTheme.copyWith(
-    useMaterial3: true,
     brightness: mode == ThemeMode.dark ? Brightness.dark : Brightness.light,
     appBarTheme: AppBarTheme(
       backgroundColor: appColors.background,
@@ -37,16 +36,16 @@ ThemeData getSnowflakeThemeData({
       height: 65,
       backgroundColor: appColors.background,
       indicatorColor: appColors.primary,
-      iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
+      iconTheme: WidgetStateProperty.resolveWith<IconThemeData>(
         (states) => IconThemeData(
-          color: states.contains(MaterialState.selected)
+          color: states.contains(WidgetState.selected)
               ? ThemeColors.white
               : appColors.primary,
         ),
       ),
-      labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
+      labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
         (states) {
-          final isSelected = states.contains(MaterialState.selected);
+          final isSelected = states.contains(WidgetState.selected);
           return TextStyle(
           fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
           color: appColors.onBackground.withAlpha(
@@ -67,7 +66,7 @@ ThemeData getSnowflakeThemeData({
       ),
     ),
     checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStateProperty.all(appColors.primary),
+      fillColor: WidgetStateProperty.all(appColors.primary),
     ),
     chipTheme: ChipThemeData(
       backgroundColor: appColors.background,
@@ -86,8 +85,8 @@ ThemeData getSnowflakeThemeData({
       onPrimary: appColors.onPrimary,
       secondary: appColors.secondary,
       onSecondary: appColors.onSecondary,
-      background: appColors.background,
-      onBackground: appColors.onBackground,
+      surface: appColors.background,
+      onSurface: appColors.onBackground,
       outline: Colors.transparent,
     ),
     dialogTheme: DialogTheme(
@@ -134,7 +133,7 @@ ThemeData getSnowflakeThemeData({
       ),
     ),
     radioTheme: RadioThemeData(
-      fillColor: MaterialStateProperty.all(appColors.primary),
+      fillColor: WidgetStateProperty.all(appColors.primary),
     ),
     scaffoldBackgroundColor: appColors.background,
     snackBarTheme: SnackBarThemeData(
@@ -142,9 +141,9 @@ ThemeData getSnowflakeThemeData({
       contentTextStyle: TextStyle(color: appColors.onSecondary),
     ),
     switchTheme: SwitchThemeData(
-      thumbColor: MaterialStateProperty.all(appColors.primary),
-      trackColor: MaterialStateProperty.all(appColors.secondary),
-      trackOutlineColor: MaterialStateProperty.all(appColors.secondary),
+      thumbColor: WidgetStateProperty.all(appColors.primary),
+      trackColor: WidgetStateProperty.all(appColors.secondary),
+      trackOutlineColor: WidgetStateProperty.all(appColors.secondary),
     ),
     tabBarTheme: TabBarTheme(
       labelColor: appColors.primary,
