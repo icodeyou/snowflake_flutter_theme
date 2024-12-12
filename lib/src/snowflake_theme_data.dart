@@ -35,25 +35,24 @@ ThemeData getSnowflakeThemeData({
     navigationBarTheme: NavigationBarThemeData(
       height: 65,
       backgroundColor: appColors.background,
-      indicatorColor: appColors.primary,
-      iconTheme: WidgetStateProperty.resolveWith<IconThemeData>(
-        (states) => IconThemeData(
-          color: states.contains(WidgetState.selected)
-              ? ThemeColors.white
-              : appColors.primary,
-        ),
+      labelTextStyle: WidgetStateProperty.all(
+        TextStyle(
+          color: appColors.primary,
+          fontWeight: FontWeight.bold,
+        ), 
       ),
-      labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
-        (states) {
-          final isSelected = states.contains(WidgetState.selected);
-          return TextStyle(
-            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
-            color: appColors.onBackground.withAlpha(
-              isSelected ? 255 : 80,
-            ),
+      indicatorColor:
+          appColors.primary,
+      iconTheme: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return  IconThemeData(
+            color:  appColors.onPrimary,
           );
-        },
-      ),
+        }
+        return  IconThemeData(
+          color:  appColors.primary.withAlpha(51),
+        );
+      }),
     ),
     cardTheme: fallbackTheme.cardTheme.copyWith(
       color: ThemeColors.white,
