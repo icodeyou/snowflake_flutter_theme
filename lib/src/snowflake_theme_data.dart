@@ -28,8 +28,8 @@ ThemeData getSnowflakeThemeData({
       elevation: 0,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedItemColor: appColors.onBackground,
-      unselectedItemColor: appColors.onBackground.withAlpha(120),
+      selectedItemColor: appColors.onPrimary,
+      unselectedItemColor: appColors.onPrimary.withAlpha(51),
       backgroundColor: appColors.background,
     ),
     navigationBarTheme: NavigationBarThemeData(
@@ -47,11 +47,11 @@ ThemeData getSnowflakeThemeData({
         (states) {
           final isSelected = states.contains(WidgetState.selected);
           return TextStyle(
-          fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
-          color: appColors.onBackground.withAlpha(
-            isSelected ? 255 : 80,
-          ),
-        );
+            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+            color: appColors.onBackground.withAlpha(
+              isSelected ? 255 : 80,
+            ),
+          );
         },
       ),
     ),
