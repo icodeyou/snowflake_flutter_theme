@@ -11,5 +11,4 @@ class SmartController extends TextEditingController {
 
   @override
   String get text => Sanitizer().run(super.text);
-
 }
