@@ -39,18 +39,17 @@ ThemeData getSnowflakeThemeData({
         TextStyle(
           color: appColors.primary,
           fontWeight: FontWeight.bold,
-        ), 
+        ),
       ),
-      indicatorColor:
-          appColors.primary,
+      indicatorColor: appColors.primary,
       iconTheme: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.selected)) {
-          return  IconThemeData(
-            color:  appColors.onPrimary,
+          return IconThemeData(
+            color: appColors.onPrimary,
           );
         }
-        return  IconThemeData(
-          color:  appColors.primary.withAlpha(51),
+        return IconThemeData(
+          color: appColors.primary.withAlpha(51),
         );
       }),
     ),
