@@ -16,7 +16,7 @@ class AppAsset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/images/$iconName',
+      'assets/$iconName',
       width: width,
       height: width,
     );
@@ -40,7 +40,7 @@ class AppAssetSvg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      'assets/images/$iconName',
+      'assets/$iconName',
       width: width,
       height: height,
       colorFilter:
