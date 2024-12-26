@@ -193,7 +193,7 @@ linter:
     - unrelated_type_equality_checks
     - unsafe_html
     - use_build_context_synchronously
-    - use_colored_box
+    - use_colored_box: false # We keep going back and forth when we use containers
     - use_decorated_box
     - use_enums
     - use_full_hex_values_for_flutter_colors
