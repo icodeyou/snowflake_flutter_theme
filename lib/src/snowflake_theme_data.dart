@@ -123,6 +123,18 @@ ThemeData getSnowflakeThemeData({
     inputDecorationTheme: InputDecorationTheme(
       fillColor: appColors.background,
       focusColor: appColors.primary,
+      labelStyle: TextStyle(color: appColors.onBackground),
+      hintStyle: TextStyle(color: appColors.onBackground.withAlpha(100)),
+      helperStyle: TextStyle(
+        color: appColors.onBackground,
+        fontWeight: FontWeight.w300,
+      ),
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: appColors.onBackground),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: appColors.onBackground),
+      ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
