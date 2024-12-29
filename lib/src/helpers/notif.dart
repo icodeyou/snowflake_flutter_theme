@@ -77,14 +77,14 @@ class Notif {
             TextButton(
               onPressed: () {
                 onCancelBeforePop?.call();
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(false);
               },
               child: Text(cancelButton),
             ),
             TextButton(
               onPressed: () {
                 onConfirm();
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(true);
               },
               child: Text(confirmButton),
             ),
