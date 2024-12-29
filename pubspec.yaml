@@ -17,6 +17,7 @@ dependencies:
   flutter_form_builder: ^9.3.0
   flutter_spinkit: ^5.1.0
   flutter_svg: ^2.0.16
+  fluttertoast: ^8.2.10
   gap: ^3.0.1
   slang: ^4.0.0
   slang_flutter: ^4.0.0

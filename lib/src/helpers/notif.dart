@@ -1,5 +1,5 @@
-import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 
 /// The type of toast to show
@@ -20,22 +20,19 @@ enum ToastType {
 /// A class that contains all the methods to show notifications
 class Notif {
   /// Show a toast message
-  static void showToast(
+  static Future<void> showToast(
     String message, {
     required BuildContext context,
     ToastType? type,
     Duration? duration,
-  }) {
-    BotToast.showText(
-      text: message,
-      textStyle: TextStyle(
-        color: _getStatusColor(type, !context.isDarkMode),
-        fontSize: ThemeSizes.xl,
-        fontWeight: FontWeight.bold,
-      ),
-      align: Alignment.bottomCenter,
-      crossPage: true,
-      contentColor: _getStatusColor(type, context.isDarkMode),
+  }) async {
+    await Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: _getStatusColor(type, context.isDarkMode),
+      textColor: _getStatusColor(type, !context.isDarkMode),
+      fontSize: ThemeSizes.xl,
     );
   }
 
@@ -55,7 +52,7 @@ class Notif {
                     : ThemeColors.statusInfo);
   }
 
-  static void showPopup({
+  static Future<bool> showPopup({
     required BuildContext context,
     required String title,
     required String content,
@@ -63,8 +60,8 @@ class Notif {
     required String cancelButton,
     required VoidCallback onConfirm,
     VoidCallback? onCancelBeforePop,
-  }) {
-    showDialog(
+  }) async {
+    final userAnswer = await showDialog<bool>(
       context: context,
       builder: (context) {
         return AlertDialog(
@@ -95,5 +92,6 @@ class Notif {
         );
       },
     );
+    return userAnswer ?? false;
   }
 }
