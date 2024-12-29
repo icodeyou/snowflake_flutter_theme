@@ -58,8 +58,6 @@ class Notif {
     required String content,
     required String confirmButton,
     required String cancelButton,
-    required VoidCallback onConfirm,
-    VoidCallback? onCancelBeforePop,
   }) async {
     final userAnswer = await showDialog<bool>(
       context: context,
@@ -76,14 +74,12 @@ class Notif {
           actions: [
             TextButton(
               onPressed: () {
-                onCancelBeforePop?.call();
                 Navigator.of(context).pop(false);
               },
               child: Text(cancelButton),
             ),
             TextButton(
               onPressed: () {
-                onConfirm();
                 Navigator.of(context).pop(true);
               },
               child: Text(confirmButton),
