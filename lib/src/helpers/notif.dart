@@ -26,6 +26,7 @@ class Notif {
     ToastType? type,
     Duration? duration,
   }) async {
+    await Fluttertoast.cancel();
     await Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
