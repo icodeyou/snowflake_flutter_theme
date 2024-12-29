@@ -28,6 +28,14 @@ migrate_working_dir/
 .dart_tool/
 .packages
 build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# ios related
 ios/Flutter/Generated.xcconfig
 ios/Flutter/flutter_export_environment.sh
+ios/Runner/GeneratedPluginRegistrant.m
+
+# android related
 android/local.properties
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
