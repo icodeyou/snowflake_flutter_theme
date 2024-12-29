@@ -26,14 +26,15 @@ class Notif {
     ToastType? type,
     Duration? duration,
   }) async {
+    final darkMode = context.isDarkMode;
     await Fluttertoast.cancel();
     await Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
-      backgroundColor: _getStatusColor(type, context.isDarkMode),
-      textColor: _getStatusColor(type, !context.isDarkMode),
-      fontSize: ThemeSizes.xl,
+      backgroundColor: _getStatusColor(type, darkMode),
+      textColor: _getStatusColor(type, !darkMode),
+      fontSize: ThemeSizes.l,
     );
   }
 
