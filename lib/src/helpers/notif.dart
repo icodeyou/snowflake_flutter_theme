@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
+import 'package:toastification/toastification.dart';
 
 /// The type of toast to show
 enum ToastType {
@@ -21,37 +21,27 @@ enum ToastType {
 class Notif {
   /// Show a toast message
   static Future<void> showToast(
+    String title,
     String message, {
     required BuildContext context,
-    ToastType? type,
+    ToastificationType? type,
+    ToastificationStyle? style,
     Duration? duration,
   }) async {
-    final darkMode = context.isDarkMode;
-    await Fluttertoast.cancel();
-    await Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      backgroundColor: _getStatusColor(type, darkMode),
-      textColor: _getStatusColor(type, !darkMode),
-      fontSize: ThemeSizes.l,
+    toastification.show(
+      context: context,
+      type: type,
+      style: style ?? ToastificationStyle.fillColored,
+      title: AppText.m(title),
+      description: AppText.s(message),
+      alignment: Alignment.center,
+      autoCloseDuration: duration ?? const Duration(seconds: 4),
+      borderRadius: ThemeRadius.m.asBorderRadius,
+      boxShadow: highModeShadow,
+      closeButtonShowType: CloseButtonShowType.none,
+      dragToClose: true,
+      applyBlurEffect: true,
     );
-  }
-
-  static Color _getStatusColor(ToastType? type, bool isLight) {
-    return type == ToastType.error
-        ? (isLight ? ThemeColors.lightStatusError : ThemeColors.statusError)
-        : type == ToastType.success
-            ? (isLight
-                ? ThemeColors.lightStatusSuccess
-                : ThemeColors.statusSuccess)
-            : type == ToastType.warning
-                ? (isLight
-                    ? ThemeColors.lightStatusWarning
-                    : ThemeColors.statusWarning)
-                : (isLight
-                    ? ThemeColors.lightStatusInfo
-                    : ThemeColors.statusInfo);
   }
 
   static Future<bool> showPopup({
