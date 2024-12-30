@@ -40,7 +40,7 @@ class Notif {
       style: styleMapper[style ?? ToastStyle.fillColored],
       title: AppText.m(title),
       description: AppText.s(message),
-      alignment: Alignment.center,
+      alignment: Alignment.bottomCenter,
       autoCloseDuration: duration ?? const Duration(seconds: 4),
       borderRadius: ThemeRadius.m.asBorderRadius,
       boxShadow: highModeShadow,
