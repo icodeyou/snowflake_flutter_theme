@@ -26,9 +26,9 @@ final styleMapper = {
 /// A class that contains all the methods to show notifications
 class Notif {
   /// Show a toast message
-  static Future<void> showToast(
-    String title,
-    String message, {
+  static Future<void> showToast({
+    required String title,
+    required String message,
     required BuildContext context,
     ToastType? type,
     ToastStyle? style,
