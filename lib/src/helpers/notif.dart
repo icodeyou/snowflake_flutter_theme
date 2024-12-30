@@ -32,6 +32,7 @@ class Notif {
     required BuildContext context,
     ToastType? type,
     ToastStyle? style,
+    bool transparent = true,
     Duration? duration,
     bool abortPrevious = true,
   }) async {
@@ -50,7 +51,7 @@ class Notif {
       boxShadow: highModeShadow,
       closeButtonShowType: CloseButtonShowType.none,
       dragToClose: true,
-      applyBlurEffect: true,
+      applyBlurEffect: transparent,
     );
   }
 
