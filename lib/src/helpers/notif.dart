@@ -33,7 +33,7 @@ class Notif {
     ToastType? type,
     ToastStyle? style,
     Duration? duration,
-    bool abortPrevious = false,
+    bool abortPrevious = true,
   }) async {
     if (abortPrevious) {
       toastification.dismissAll();
