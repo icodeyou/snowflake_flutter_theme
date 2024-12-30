@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 class AppAsset extends StatelessWidget {
   const AppAsset({
     super.key,
-    required this.iconName,
+    required this.filePathFromAsset,
     this.width,
     this.height,
     this.size,
@@ -17,7 +17,7 @@ class AppAsset extends StatelessWidget {
           'size and height cannot be provided together',
         );
 
-  final String iconName;
+  final String filePathFromAsset;
   final double? width;
   final double? height;
   final double? size;
@@ -25,7 +25,7 @@ class AppAsset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/$iconName',
+      'assets/$filePathFromAsset',
       width: size ?? width,
       height: size ?? height,
     );
@@ -35,7 +35,7 @@ class AppAsset extends StatelessWidget {
 class AppAssetSvg extends StatelessWidget {
   const AppAssetSvg({
     super.key,
-    required this.iconName,
+    required this.filePathFromAsset,
     this.color,
     this.width,
     this.height,
@@ -49,7 +49,7 @@ class AppAssetSvg extends StatelessWidget {
           'size and height cannot be provided together',
         );
 
-  final String iconName;
+  final String filePathFromAsset;
   final Color? color;
   final double? width;
   final double? height;
@@ -58,7 +58,7 @@ class AppAssetSvg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      'assets/$iconName',
+      'assets/$filePathFromAsset',
       width: size ?? width,
       height: size ?? height,
       colorFilter:
