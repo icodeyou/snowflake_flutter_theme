@@ -8,6 +8,7 @@ class AppAsset extends StatelessWidget {
     this.width,
     this.height,
     this.size,
+    this.fit,
   })  : assert(
           !(width != null && size != null),
           'size and width cannot be provided together',
@@ -21,6 +22,7 @@ class AppAsset extends StatelessWidget {
   final double? width;
   final double? height;
   final double? size;
+  final BoxFit? fit;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class AppAsset extends StatelessWidget {
       'assets/$filePathFromAsset',
       width: size ?? width,
       height: size ?? height,
+      fit: fit,
     );
   }
 }
