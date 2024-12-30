@@ -33,7 +33,11 @@ class Notif {
     ToastType? type,
     ToastStyle? style,
     Duration? duration,
+    bool abortPrevious = false,
   }) async {
+    if (abortPrevious) {
+      toastification.dismissAll();
+    }
     toastification.show(
       context: context,
       type: typeMapper[type ?? ToastType.basic],
