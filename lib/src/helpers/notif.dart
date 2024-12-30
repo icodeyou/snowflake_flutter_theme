@@ -3,19 +3,25 @@ import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 import 'package:toastification/toastification.dart';
 
 /// The type of toast to show
-enum ToastType {
-  /// Basic messages
-  basic,
+enum ToastType { basic, success, warning, error }
 
-  /// Success messages
-  success,
+/// The style of the toast
+enum ToastStyle { fillColored, flat, flatColored, minimal, simple }
 
-  /// Warning messages
-  warning,
+final typeMapper = {
+  ToastType.basic: ToastificationType.info,
+  ToastType.success: ToastificationType.success,
+  ToastType.warning: ToastificationType.warning,
+  ToastType.error: ToastificationType.error,
+};
 
-  /// Error messages
-  error,
-}
+final styleMapper = {
+  ToastStyle.fillColored: ToastificationStyle.fillColored,
+  ToastStyle.flat: ToastificationStyle.flat,
+  ToastStyle.flatColored: ToastificationStyle.flatColored,
+  ToastStyle.minimal: ToastificationStyle.minimal,
+  ToastStyle.simple: ToastificationStyle.simple,
+};
 
 /// A class that contains all the methods to show notifications
 class Notif {
@@ -24,14 +30,14 @@ class Notif {
     String title,
     String message, {
     required BuildContext context,
-    ToastificationType? type,
-    ToastificationStyle? style,
+    ToastType? type,
+    ToastStyle? style,
     Duration? duration,
   }) async {
     toastification.show(
       context: context,
-      type: type,
-      style: style ?? ToastificationStyle.fillColored,
+      type: typeMapper[type ?? ToastType.basic],
+      style: styleMapper[style ?? ToastStyle.fillColored],
       title: AppText.m(title),
       description: AppText.s(message),
       alignment: Alignment.center,
