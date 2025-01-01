@@ -60,7 +60,7 @@ class Notif {
     required String title,
     required String content,
     required String confirmButton,
-    required String cancelButton,
+    String? cancelButton,
     bool closePopup = true,
   }) async {
     final userAnswer = await showDialog<bool>(
@@ -77,14 +77,16 @@ class Notif {
           ),
           content: Text(content),
           actions: [
-            TextButton(
-              onPressed: () {
-                if (closePopup) {
-                  Navigator.of(context).pop(false);
-                }
-              },
-              child: Text(cancelButton),
-            ),
+            if (cancelButton != null) ...[
+              TextButton(
+                onPressed: () {
+                  if (closePopup) {
+                    Navigator.of(context).pop(false);
+                  }
+                },
+                child: Text(cancelButton),
+              ),
+            ],
             TextButton(
               onPressed: () {
                 if (closePopup) {
