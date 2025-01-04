@@ -131,6 +131,7 @@ class AppButton extends StatelessWidget {
                 padding: ThemeSizes.l.asInsets,
                 child: AppText(
                   label,
+                  textAlign: TextAlign.center,
                   fontSize: fontSize ?? ThemeSizes.l,
                   fontWeight: FontWeight.w600,
                   color: foregroundColor,
