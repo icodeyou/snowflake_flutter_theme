@@ -22,6 +22,7 @@ class AppButton extends StatelessWidget {
     this.color,
     this.radius,
     this.iconPosition = IconPosition.left,
+    this.expand = false,
   })  : buttonType = ButtonType.primary,
         thickness = null,
         outlineColor = null;
@@ -37,6 +38,7 @@ class AppButton extends StatelessWidget {
     this.thickness,
     this.outlineColor,
     this.iconPosition = IconPosition.left,
+    this.expand = false,
   }) : buttonType = ButtonType.secondary;
 
   final IconData? icon;
@@ -47,9 +49,9 @@ class AppButton extends StatelessWidget {
   final IconPosition iconPosition;
   final Color? color;
   final double? radius;
-
   final double? thickness;
   final Color? outlineColor;
+  final bool expand;
 
   @override
   Widget build(BuildContext context) {
@@ -127,6 +129,7 @@ class AppButton extends StatelessWidget {
             ),
           if (label != null)
             Flexible(
+              fit: expand ? FlexFit.tight : FlexFit.loose,
               child: Padding(
                 padding: ThemeSizes.l.asInsets,
                 child: AppText(
