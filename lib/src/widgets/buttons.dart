@@ -126,7 +126,7 @@ class AppButton extends StatelessWidget {
               width: ThemeSizes.s,
             ),
           if (label != null)
-            Expanded(
+            Flexible(
               child: Padding(
                 padding: ThemeSizes.l.asInsets,
                 child: AppText(
