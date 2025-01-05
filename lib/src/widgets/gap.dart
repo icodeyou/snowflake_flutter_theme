@@ -4,11 +4,16 @@ import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 
 /// `AppGap` is a box that can be used to add a space in Row or Column
 /// If it is a row, the box will have a width of $gap
-/// /// If it is a column, the box will have a height of $gap
+/// If it is a column, the box will have a height of $gap
 class AppGap extends StatelessWidget {
   /// Constructor
   /// parameter : double gap
   const AppGap(this.gap, {super.key});
+
+  /// xxs size : '2'
+  const AppGap.xxxs({
+    super.key,
+  }) : gap = ThemeSizes.xxxs;
 
   /// xxs size : '4'
   const AppGap.xxs({
