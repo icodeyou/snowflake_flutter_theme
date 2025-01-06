@@ -21,5 +21,6 @@ export 'src/widgets/assets.dart';
 export 'src/widgets/buttons.dart';
 export 'src/widgets/error_details.dart';
 export 'src/widgets/gap.dart';
+export 'src/widgets/gradient.dart';
 export 'src/widgets/loader.dart';
 export 'src/widgets/text.dart';
