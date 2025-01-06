@@ -14,16 +14,18 @@ class GradientView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            topColor,
-            bottomColor,
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
+    return IgnorePointer(
+      child: Container(
+        height: height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              topColor,
+              bottomColor,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
         ),
       ),
     );
