@@ -21,7 +21,7 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScaler,
+    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -49,7 +49,7 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScaler,
+    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -76,7 +76,7 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScaler,
+    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -103,7 +103,7 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScaler,
+    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -130,7 +130,7 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScaler,
+    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -157,7 +157,7 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScaler,
+    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -184,7 +184,7 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScaler,
+    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -211,7 +211,7 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScaler,
+    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -261,7 +261,7 @@ class AppText extends StatelessWidget {
   final TextDecoration? textDecoration;
 
   /// A scaler to scale the text according to the screen size
-  final TextScaler? textScaler;
+  final double? textScalerValue;
 
   @override
   Widget build(BuildContext context) {
@@ -279,7 +279,8 @@ class AppText extends StatelessWidget {
         leadingDistribution: TextLeadingDistribution.even,
       ),
       maxLines: maxLines,
-      textScaler: textScaler,
+      textScaler:
+          textScalerValue == null ? null : TextScaler.linear(textScalerValue!),
       style: TextStyle(
         color: color,
         fontSize: fontSize,

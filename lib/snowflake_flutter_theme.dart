@@ -11,6 +11,7 @@ export 'src/data/sizes.dart'
 /// Helpers
 export 'src/helpers/extensions/context_extensions.dart';
 export 'src/helpers/notif.dart';
+export 'src/helpers/scale.dart';
 
 /// Main methods
 export 'src/snowflake_theme_data.dart' show getSnowflakeThemeData;
