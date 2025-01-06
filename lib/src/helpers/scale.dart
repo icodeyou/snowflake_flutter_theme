@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 class Scale {
   static double value(
     BuildContext context, {
-    double maxTextScaleFactor = 2,
+    double minTextScaleFactor = 0,
   }) {
     final width = MediaQuery.of(context).size.width;
-    final val = (width / 1400) * maxTextScaleFactor;
-    return max(1, min(val, maxTextScaleFactor));
+    const nominalWidth = 430;
+    final factor = width / nominalWidth;
+    return max(minTextScaleFactor, factor);
   }
 }
