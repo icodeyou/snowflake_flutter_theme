@@ -32,10 +32,12 @@ class Notif {
     required BuildContext context,
     ToastType? type,
     ToastStyle? style,
-    bool transparent = true,
-    bool progressBar = true,
     Duration? duration,
     bool abortPrevious = true,
+    bool transparent = true,
+    bool progressBar = true,
+    bool dragToClose = true,
+    bool closeOnClick = true,
   }) async {
     if (abortPrevious) {
       toastification.dismissAll();
@@ -51,7 +53,8 @@ class Notif {
       borderRadius: ThemeRadius.m.asBorderRadius,
       boxShadow: highModeShadow,
       closeButtonShowType: CloseButtonShowType.none,
-      dragToClose: true,
+      dragToClose: dragToClose,
+      closeOnClick: closeOnClick,
       applyBlurEffect: transparent,
       showProgressBar: progressBar,
     );
