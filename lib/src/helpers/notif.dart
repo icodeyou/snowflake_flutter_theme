@@ -33,6 +33,7 @@ class Notif {
     ToastType? type,
     ToastStyle? style,
     bool transparent = true,
+    bool progressBar = true,
     Duration? duration,
     bool abortPrevious = true,
   }) async {
@@ -52,6 +53,7 @@ class Notif {
       closeButtonShowType: CloseButtonShowType.none,
       dragToClose: true,
       applyBlurEffect: transparent,
+      showProgressBar: progressBar,
     );
   }
 
