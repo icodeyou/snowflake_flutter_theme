@@ -93,7 +93,7 @@ ThemeData getSnowflakeThemeData({
       contentTextStyle: TextStyle(color: appColors.onBackground),
     ),
     dividerTheme: const DividerThemeData(
-      color: ThemeColors.grey10,
+      color: ThemeColors.grey30,
       space: ThemeSizes.s,
       thickness: 1,
     ),
