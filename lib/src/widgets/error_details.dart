@@ -10,15 +10,13 @@ class AppErrorDetailsWidget extends StatelessWidget {
   const AppErrorDetailsWidget({
     required this.errorTitle,
     required this.errorMessage,
-    required this.retryButtonLabel,
+    this.retryButton,
     Key? key,
-    this.retryCallback,
   }) : super(key: key);
 
   final String errorTitle;
   final String errorMessage;
-  final String retryButtonLabel;
-  final VoidCallback? retryCallback;
+  final ({String label, VoidCallback callback})? retryButton; 
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +31,10 @@ class AppErrorDetailsWidget extends StatelessWidget {
               color: ThemeColors.statusError,
             ),
             const AppGap.m(),
-            if (retryCallback != null)
+            if (retryButton != null)
               AppButton.primary(
-                label: retryButtonLabel,
-                onPressed: retryCallback,
+                label: retryButton!.label,
+                onPressed: retryButton!.callback,
               ),
           ],
         ),
