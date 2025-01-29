@@ -55,6 +55,18 @@ extension EwaSizesInsetsExtensions on EdgeInsets {
   /// Remove horizontal borders
   EdgeInsets get verticalOnly => copyWith(right: 0, left: 0);
 
+  /// Only left border
+  EdgeInsets get leftOnly => copyWith(top: 0, right: 0, bottom: 0);
+
+  /// Only top border
+  EdgeInsets get topOnly => copyWith(left: 0, right: 0, bottom: 0);
+
+  /// Only right border
+  EdgeInsets get rightOnly => copyWith(top: 0, left: 0, bottom: 0);
+
+  /// Only bottom border
+  EdgeInsets get bottomOnly => copyWith(top: 0, left: 0, right: 0);
+
   /// Override left border
   EdgeInsets withLeft(double value) => copyWith(left: value);
 
