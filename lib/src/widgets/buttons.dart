@@ -20,6 +20,7 @@ class AppButton extends StatelessWidget {
     this.label,
     this.fontSize,
     this.color,
+    this.fontColor,
     this.radius,
     this.iconPosition = IconPosition.left,
     this.expand = false,
@@ -34,6 +35,7 @@ class AppButton extends StatelessWidget {
     this.label,
     this.fontSize,
     this.color,
+    this.fontColor,
     this.radius,
     this.thickness,
     this.outlineColor,
@@ -48,6 +50,7 @@ class AppButton extends StatelessWidget {
   final ButtonType buttonType;
   final IconPosition iconPosition;
   final Color? color;
+  final Color? fontColor;
   final double? radius;
   final double? thickness;
   final Color? outlineColor;
@@ -75,7 +78,9 @@ class AppButton extends StatelessWidget {
     final foregroundColor = () {
       switch (buttonType) {
         case ButtonType.primary:
-          return color == null ? ThemeColors.onPrimary(context) : Colors.white;
+          return color == null
+              ? ThemeColors.onPrimary(context)
+              : fontColor ?? ThemeColors.white;
         case ButtonType.secondary:
           return color ?? ThemeColors.primary(context);
       }
