@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 
 /// All radius are defined in this class
 class ThemeRadius {
+
+  /// XXS corners
+  static const xxs = Radius.circular(2);
   
   /// XS corners
   static const xs = Radius.circular(4);
