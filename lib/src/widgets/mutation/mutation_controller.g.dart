@@ -7,7 +7,7 @@ part of 'mutation_controller.dart';
 // **************************************************************************
 
 String _$mutationControllerHash() =>
-    r'9852606438b06b26499f98d819f3a8ea00a5d623';
+    r'00effaaa29f288006e0e045fe9999fa8addb5a1e';
 
 /// Copied from Dart SDK
 class _SystemHash {
