@@ -13,9 +13,25 @@ enum IconPosition { left, right }
 
 /// Button with the AppTheme
 class AppButton extends StatelessWidget {
-  const AppButton.primary({
-    required this.onPressed,
+  const AppButton({
     super.key,
+    required this.iconPosition,
+    required this.buttonType,
+    required this.onPressed,
+    required this.expand,
+    required this.icon,
+    required this.label,
+    required this.fontSize,
+    required this.color,
+    required this.fontColor,
+    required this.radius,
+    required this.thickness,
+    required this.outlineColor,
+  });
+
+  const AppButton.primary({
+    super.key,
+    required this.onPressed,
     this.icon,
     this.label,
     this.fontSize,
@@ -29,8 +45,8 @@ class AppButton extends StatelessWidget {
         outlineColor = null;
 
   const AppButton.secondary({
-    required this.onPressed,
     super.key,
+    required this.onPressed,
     this.icon,
     this.label,
     this.fontSize,
