@@ -6,17 +6,17 @@ import 'package:snowflake_flutter_theme/src/widgets/mutation/mutation_controller
 class MutationButton<T> extends ConsumerWidget {
   const MutationButton({
     super.key,
-    required this.iconPosition,
+    this.iconPosition = IconPosition.left,
     required this.buttonType,
-    required this.expand,
-    required this.icon,
-    required this.label,
-    required this.fontSize,
-    required this.color,
-    required this.fontColor,
-    required this.radius,
-    required this.thickness,
-    required this.outlineColor,
+    this.expand = false,
+    this.icon,
+    this.label,
+    this.fontSize,
+    this.color,
+    this.fontColor,
+    this.radius,
+    this.thickness,
+    this.outlineColor,
     required this.onPressed,
     this.onSuccess,
     this.onError,
@@ -25,14 +25,14 @@ class MutationButton<T> extends ConsumerWidget {
   final IconPosition iconPosition;
   final ButtonType buttonType;
   final bool expand;
-  final IconData icon;
-  final String label;
-  final double fontSize;
-  final Color color;
-  final Color fontColor;
-  final double radius;
-  final double thickness;
-  final Color outlineColor;
+  final IconData? icon;
+  final String? label;
+  final double? fontSize;
+  final Color? color;
+  final Color? fontColor;
+  final double? radius;
+  final double? thickness;
+  final Color? outlineColor;
 
   final Future<T> Function() onPressed;
   final void Function(T)? onSuccess;
