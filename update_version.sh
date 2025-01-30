@@ -44,8 +44,8 @@ echo "ℹ️  The latest version is $old_version"
 echo ""
 
 # Prompt for the new version and old build number
-read -p "Enter the new version: " new_version
-read -p "Enter the next version: " next_version
+read -p "Enter the new version (we override current pubspec): " new_version
+read -p "Enter the next version (temporary in pubspec): " next_version
 read -p "Enter the next build number (next branch number): " next_build_number
 read -p "Enter the commit message for the merge and tag: " commit_message
 
