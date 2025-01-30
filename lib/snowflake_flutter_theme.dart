@@ -23,4 +23,6 @@ export 'src/widgets/error_details.dart';
 export 'src/widgets/gap.dart';
 export 'src/widgets/gradient.dart';
 export 'src/widgets/loader.dart';
+export 'src/widgets/mutation/mutation_button.dart';
+export 'src/widgets/mutation/mutation_widget.dart';
 export 'src/widgets/text.dart';
