@@ -7,7 +7,7 @@ part of 'mutation_controller.dart';
 // **************************************************************************
 
 String _$mutationControllerHash() =>
-    r'00effaaa29f288006e0e045fe9999fa8addb5a1e';
+    r'fd79dd796d082a890c1c258ea24349b9f5ec947c';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -32,10 +32,10 @@ class _SystemHash {
 
 abstract class _$MutationController
     extends BuildlessAutoDisposeNotifier<MutationState> {
-  late final int hashCode;
+  late final int key;
 
   MutationState build(
-    int hashCode,
+    int key,
   );
 }
 
@@ -50,10 +50,10 @@ class MutationControllerFamily extends Family<MutationState> {
 
   /// See also [MutationController].
   MutationControllerProvider call(
-    int hashCode,
+    int key,
   ) {
     return MutationControllerProvider(
-      hashCode,
+      key,
     );
   }
 
@@ -62,7 +62,7 @@ class MutationControllerFamily extends Family<MutationState> {
     covariant MutationControllerProvider provider,
   ) {
     return call(
-      provider.hashCode,
+      provider.key,
     );
   }
 
@@ -86,9 +86,9 @@ class MutationControllerProvider
     extends AutoDisposeNotifierProviderImpl<MutationController, MutationState> {
   /// See also [MutationController].
   MutationControllerProvider(
-    int hashCode,
+    int key,
   ) : this._internal(
-          () => MutationController()..hashCode = hashCode,
+          () => MutationController()..key = key,
           from: mutationControllerProvider,
           name: r'mutationControllerProvider',
           debugGetCreateSourceHash:
@@ -98,7 +98,7 @@ class MutationControllerProvider
           dependencies: MutationControllerFamily._dependencies,
           allTransitiveDependencies:
               MutationControllerFamily._allTransitiveDependencies,
-          hashCode: hashCode,
+          key: key,
         );
 
   MutationControllerProvider._internal(
@@ -108,17 +108,17 @@ class MutationControllerProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.hashCode,
+    required this.key,
   }) : super.internal();
 
-  final int hashCode;
+  final int key;
 
   @override
   MutationState runNotifierBuild(
     covariant MutationController notifier,
   ) {
     return notifier.build(
-      hashCode,
+      key,
     );
   }
 
@@ -127,13 +127,13 @@ class MutationControllerProvider
     return ProviderOverride(
       origin: this,
       override: MutationControllerProvider._internal(
-        () => create()..hashCode = hashCode,
+        () => create()..key = key,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        hashCode: hashCode,
+        key: key,
       ),
     );
   }
@@ -146,13 +146,13 @@ class MutationControllerProvider
 
   @override
   bool operator ==(Object other) {
-    return other is MutationControllerProvider && other.hashCode == hashCode;
+    return other is MutationControllerProvider && other.key == key;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, hashCode.hashCode);
+    hash = _SystemHash.combine(hash, key.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -161,8 +161,8 @@ class MutationControllerProvider
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 mixin MutationControllerRef on AutoDisposeNotifierProviderRef<MutationState> {
-  /// The parameter `hashCode` of this provider.
-  int get hashCode;
+  /// The parameter `key` of this provider.
+  int get key;
 }
 
 class _MutationControllerProviderElement
@@ -171,7 +171,7 @@ class _MutationControllerProviderElement
   _MutationControllerProviderElement(super.provider);
 
   @override
-  int get hashCode => (origin as MutationControllerProvider).hashCode;
+  int get key => (origin as MutationControllerProvider).key;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

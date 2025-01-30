@@ -7,7 +7,7 @@ part 'mutation_controller.g.dart';
 @riverpod
 class MutationController extends _$MutationController {
   @override
-  MutationState build(int hashCode) {
+  MutationState build(int key) {
     return MutationState.idle;
   }
 
