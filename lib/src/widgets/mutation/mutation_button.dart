@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 import 'package:snowflake_flutter_theme/src/widgets/mutation/mutation_controller.dart';
+import 'package:snowflake_flutter_theme/src/widgets/mutation/mutation_state.dart';
 
 class MutationButton<T> extends ConsumerWidget {
   const MutationButton({
@@ -40,25 +41,33 @@ class MutationButton<T> extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return AppButton(
-      iconPosition: iconPosition,
-      buttonType: buttonType,
-      expand: expand,
-      icon: icon,
-      label: label,
-      fontSize: fontSize,
-      color: color,
-      fontColor: fontColor,
-      radius: radius,
-      thickness: thickness,
-      outlineColor: outlineColor,
-      onPressed: () async {
-        await ref.read(mutationControllerProvider(hashCode).notifier).action<T>(
-              mutation: onPressed,
-              onSuccess: onSuccess,
-              onError: onError,
-            );
-      },
-    );
+    final mutationState = ref.watch(mutationControllerProvider(hashCode));
+    switch (mutationState) {
+      case MutationState.loading:
+        return CircularProgressIndicator(color: color);
+      case MutationState.idle:
+        return AppButton(
+          iconPosition: iconPosition,
+          buttonType: buttonType,
+          expand: expand,
+          icon: icon,
+          label: label,
+          fontSize: fontSize,
+          color: color,
+          fontColor: fontColor,
+          radius: radius,
+          thickness: thickness,
+          outlineColor: outlineColor,
+          onPressed: () async {
+            await ref
+                .read(mutationControllerProvider(hashCode).notifier)
+                .action<T>(
+                  mutation: onPressed,
+                  onSuccess: onSuccess,
+                  onError: onError,
+                );
+          },
+        );
+    }
   }
 }
