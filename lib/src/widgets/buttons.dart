@@ -106,7 +106,7 @@ class AppButton extends StatelessWidget {
       }
     }();
 
-    final buttonRadius = radius ?? ThemeRadius.xs.asBorderRadius;
+    final buttonRadius = radius ?? ThemeRadius.m.asBorderRadius;
 
     final style = () {
       switch (buttonType) {
