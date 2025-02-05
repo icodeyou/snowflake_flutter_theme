@@ -156,7 +156,11 @@ class AppButton extends StatelessWidget {
             Flexible(
               fit: expand ? FlexFit.tight : FlexFit.loose,
               child: Padding(
-                padding: padding ?? ThemeSizes.l.asInsets,
+                padding: padding ??
+                    const EdgeInsets.symmetric(
+                      horizontal: ThemeSizes.l,
+                      vertical: ThemeSizes.s,
+                    ),
                 child: AppText(
                   label,
                   textAlign: TextAlign.center,
