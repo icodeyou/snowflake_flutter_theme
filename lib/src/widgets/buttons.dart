@@ -157,7 +157,7 @@ class AppButton extends StatelessWidget {
                 padding: padding ??
                     const EdgeInsets.symmetric(
                       horizontal: ThemeSizes.l,
-                      vertical: ThemeSizes.s,
+                      vertical: ThemeSizes.m,
                     ),
                 child: AppText(
                   label,
