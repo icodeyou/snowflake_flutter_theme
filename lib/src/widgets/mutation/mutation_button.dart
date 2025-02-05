@@ -33,7 +33,7 @@ class MutationButton<T> extends ConsumerWidget {
   final double? fontSize;
   final Color? color;
   final Color? fontColor;
-  final double? radius;
+  final BorderRadius? radius;
   final double? thickness;
   final Color? outlineColor;
 
