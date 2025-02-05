@@ -12,6 +12,7 @@ class MutationButton<T> extends ConsumerWidget {
     this.expand = false,
     this.icon,
     this.label,
+    this.padding,
     this.fontSize,
     this.color,
     this.fontColor,
@@ -28,6 +29,7 @@ class MutationButton<T> extends ConsumerWidget {
   final bool expand;
   final IconData? icon;
   final String? label;
+  final EdgeInsetsGeometry? padding;
   final double? fontSize;
   final Color? color;
   final Color? fontColor;
@@ -52,6 +54,7 @@ class MutationButton<T> extends ConsumerWidget {
           expand: expand,
           icon: icon,
           label: label,
+          padding: padding,
           fontSize: fontSize,
           color: color,
           fontColor: fontColor,

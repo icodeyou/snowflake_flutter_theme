@@ -19,6 +19,7 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     required this.icon,
     required this.label,
+    required this.padding,
     required this.fontSize,
     required this.color,
     required this.fontColor,
@@ -34,6 +35,7 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     this.icon,
     this.label,
+    this.padding,
     this.fontSize,
     this.color,
     this.fontColor,
@@ -49,6 +51,7 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     this.icon,
     this.label,
+    this.padding,
     this.fontSize,
     this.color,
     this.fontColor,
@@ -61,6 +64,7 @@ class AppButton extends StatelessWidget {
 
   final IconData? icon;
   final String? label;
+  final EdgeInsetsGeometry? padding;
   final double? fontSize;
   final void Function()? onPressed;
   final ButtonType buttonType;
@@ -152,7 +156,7 @@ class AppButton extends StatelessWidget {
             Flexible(
               fit: expand ? FlexFit.tight : FlexFit.loose,
               child: Padding(
-                padding: ThemeSizes.l.asInsets,
+                padding: padding ?? ThemeSizes.l.asInsets,
                 child: AppText(
                   label,
                   textAlign: TextAlign.center,
