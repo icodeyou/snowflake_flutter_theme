@@ -46,7 +46,7 @@ class MutationButton<T> extends ConsumerWidget {
     final mutationState = ref.watch(mutationControllerProvider(hashCode));
     switch (mutationState) {
       case MutationState.loading:
-        return CircularProgressIndicator(color: color);
+        return Center(child: CircularProgressIndicator(color: color));
       case MutationState.idle:
         return AppButton(
           iconPosition: iconPosition,
