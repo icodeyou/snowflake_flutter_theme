@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snowflake_flutter_theme/src/data/font_sizes.dart';
+import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 
 /// This class defines all kinds of [Text]
 class AppText extends StatelessWidget {
@@ -13,6 +13,7 @@ class AppText extends StatelessWidget {
     required this.fontSize,
     this.bold = false,
     this.italic = false,
+    this.scaleText = true,
     this.textAlign,
     this.softWrap,
     this.overflow,
@@ -21,7 +22,6 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -41,6 +41,7 @@ class AppText extends StatelessWidget {
     super.key,
     this.bold = false,
     this.italic = false,
+    this.scaleText = true,
     this.textAlign,
     this.softWrap,
     this.overflow,
@@ -49,7 +50,6 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -68,6 +68,7 @@ class AppText extends StatelessWidget {
     super.key,
     this.bold = false,
     this.italic = false,
+    this.scaleText = true,
     this.textAlign,
     this.softWrap,
     this.overflow,
@@ -76,7 +77,6 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -95,6 +95,7 @@ class AppText extends StatelessWidget {
     super.key,
     this.bold = false,
     this.italic = false,
+    this.scaleText = true,
     this.textAlign,
     this.softWrap,
     this.overflow,
@@ -103,7 +104,6 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -122,6 +122,7 @@ class AppText extends StatelessWidget {
     super.key,
     this.bold = false,
     this.italic = false,
+    this.scaleText = true,
     this.textAlign,
     this.softWrap,
     this.overflow,
@@ -130,7 +131,6 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -149,6 +149,7 @@ class AppText extends StatelessWidget {
     super.key,
     this.bold = false,
     this.italic = false,
+    this.scaleText = true,
     this.textAlign,
     this.softWrap,
     this.overflow,
@@ -157,7 +158,6 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -176,6 +176,7 @@ class AppText extends StatelessWidget {
     super.key,
     this.bold = false,
     this.italic = false,
+    this.scaleText = true,
     this.textAlign,
     this.softWrap,
     this.overflow,
@@ -184,7 +185,6 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -203,6 +203,7 @@ class AppText extends StatelessWidget {
     super.key,
     this.bold = false,
     this.italic = false,
+    this.scaleText = true,
     this.textAlign,
     this.softWrap,
     this.overflow,
@@ -211,7 +212,6 @@ class AppText extends StatelessWidget {
     this.fontWeight,
     this.fontStyle,
     this.textDecoration,
-    this.textScalerValue,
   })  : assert(
           !bold || fontWeight == null,
           'If bold is set to true, fontWeight must be null',
@@ -235,6 +235,9 @@ class AppText extends StatelessWidget {
   /// Boolean value indicating if text should be italic
   /// It cannot be used simultaneously with [fontStyle]
   final bool italic;
+
+  /// Whether we scale the text according to the screen size
+  final bool scaleText;
 
   /// Whether and how to align text horizontally.
   final TextAlign? textAlign;
@@ -260,9 +263,6 @@ class AppText extends StatelessWidget {
   /// A linear decoration to draw near the text.
   final TextDecoration? textDecoration;
 
-  /// A scaler to scale the text according to the screen size
-  final double? textScalerValue;
-
   @override
   Widget build(BuildContext context) {
     final overflow = (this.overflow == null && maxLines != null)
@@ -279,8 +279,7 @@ class AppText extends StatelessWidget {
         leadingDistribution: TextLeadingDistribution.even,
       ),
       maxLines: maxLines,
-      textScaler:
-          textScalerValue == null ? null : TextScaler.linear(textScalerValue!),
+      textScaler: scaleText ? TextScaler.linear(Scale.value(context)) : null,
       style: TextStyle(
         color: color,
         fontSize: fontSize,
