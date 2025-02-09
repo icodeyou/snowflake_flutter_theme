@@ -35,10 +35,10 @@ get_latest_tag() {
     echo "$old_version"
 }
 
-# Check for uncommitted changes
+echo -e "\n🔶 Check for uncommited changes\n"
 check_uncommitted_changes
 
-# Get the latest tag
+echo -e "\n🔶 Get latest tag\n"
 old_version=$(get_latest_tag)
 echo "ℹ️  The latest version is $old_version"
 echo ""
@@ -49,44 +49,49 @@ read -p "Enter the next version (temporary in pubspec): " next_version
 read -p "Enter the next build number (next branch number): " next_build_number
 read -p "Enter the commit message for the merge and tag: " commit_message
 
-# Increment the build number
+echo -e "\n🔶 Increment build number\n"
 new_build_number=$((next_build_number - 1))
 
-# Check if the old build branch exists
+echo -e "\n🔶 Check old build branch exists"
 check_branch_exists "v${new_build_number}"
 
 # [CHECK] SED NEW
 # Before push, update the NEW version and build number in pubspec.yaml, if it wasn't already done
+echo -e "\n🔶 Replace version in pubspec.yaml"
 sed -i '' "s/^version:.*/version: ${new_version}+${new_build_number}/" pubspec.yaml
-# Commit if necessary
+
+echo -e "\n🔶 Commit if necessary"
 git commit -am "pub: update version to ${new_version}+${new_build_number}"
 
-# Merge branch v${new_build_number} with the provided commit message
+echo -e "\n🔶 Checkout master"
+git checkout master
+
+echo -e "\n🔶 Merge branch v${new_build_number} with the provided commit message"
 git merge "v${new_build_number}" -m "$commit_message" --no-ff || error_exit "Failed to merge branch 'v${new_build_number}'."
 
-# Fetch the latest changes from the remote repository and display the log
+echo -e "\n🔶 Fetch the latest changes from the remote repository and display the log\n" 
 git pull || error_exit "Failed to pull the latest changes from the remote repository."
 git --no-pager log --date=format:"%Y-%m-%d %H:%M:%S" --pretty=format:"%C(yellow)%h%Cgreen -- %ad %C(magenta)[%an]%Creset : %s" -10 || error_exit "Failed to display the git log."
 
-# Tag the commit with the tag ${new_version} and the provided commit message
+echo -e "\n🔶 Tag the commit with the tag ${new_version} and the provided commit message"
 git tag "${new_version}" -m "$commit_message" || error_exit "Failed to tag the commit with version ${new_version}."
 
-# Push the tags to the remote repository
+echo -e "\n🔶 Push the tags to the remote repository"
 git push --tags || error_exit "Failed to push the tags to the remote repository."
 
 # [CHECK] SED NEXT
-# Update the NEXT version and build number in pubspec.yaml
+echo -e "\n🔶 Update the NEXT version and build number in pubspec.yaml"
 sed -i '' "s/^version:.*/version: ${next_version}+${next_build_number}/" pubspec.yaml
-# Commit the changes with the message '[DELIVERY ${old_version}]: upgrade version to ${new_version}'
+echo -e "\n🔶 Commit the changes with the message 'DELIVERY ...'"
 git commit -am "[DELIVERY ${old_version}]: upgrade version to ${new_version}" || error_exit "Failed to commit the version update."
 
-# Push the changes to master
+echo -e "\n🔶 Push the changes to master"
 git push || error_exit "Failed to push the changes to the master branch."
 
-# Create and switch to a new branch v${next_build_number}
+echo -e "\n🔶 Create and switch to a new branch v${next_build_number}"
 git checkout -b "v${next_build_number}" || error_exit "Failed to create and switch to the branch 'v${next_build_number}'."
 
-# Push new branch
+echo -e "\n🔶 Push new branch"
 git push || error_exit "Failed to push the branch 'v${next_build_number}'."
 
 # Print a message indicating completion
