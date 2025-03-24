@@ -84,6 +84,7 @@ ThemeData getSnowflakeThemeData({
       onSecondary: appColors.onSecondary,
       surface: appColors.background,
       onSurface: appColors.onBackground,
+      onSurfaceVariant: appColors.onBackground.withAlpha(50),
       outline: Colors.transparent,
     ),
     dialogTheme: DialogTheme(
