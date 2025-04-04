@@ -28,7 +28,7 @@ ThemeData getSnowflakeThemeData({
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: appColors.onPrimary,
-      unselectedItemColor: appColors.onPrimary.withAlpha(51),
+      unselectedItemColor: appColors.onPrimary,
       backgroundColor: appColors.background,
     ),
     navigationBarTheme: NavigationBarThemeData(
@@ -48,7 +48,7 @@ ThemeData getSnowflakeThemeData({
           );
         }
         return IconThemeData(
-          color: appColors.primary.withAlpha(51),
+          color: appColors.primary.withAlpha(150),
         );
       }),
     ),

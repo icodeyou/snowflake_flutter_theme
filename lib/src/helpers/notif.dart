@@ -49,7 +49,7 @@ class Notif {
       title: AppText.m(title, maxLines: 2),
       description: AppText.s(message, maxLines: 12),
       alignment: Alignment.bottomCenter,
-      autoCloseDuration: duration ?? const Duration(seconds: 4),
+      autoCloseDuration: duration ?? const Duration(seconds: 5),
       borderRadius: ThemeRadius.m.asBorderRadius,
       boxShadow: highModeShadow,
       closeButtonShowType: CloseButtonShowType.none,
