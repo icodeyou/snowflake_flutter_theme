@@ -48,7 +48,7 @@ ThemeData getSnowflakeThemeData({
           );
         }
         return IconThemeData(
-          color: appColors.primary.withAlpha(150),
+          color: appColors.primary,
         );
       }),
     ),
