@@ -33,11 +33,15 @@ class Notif {
     ToastType? type,
     ToastStyle? style,
     Duration? duration,
+    Color? primaryColor,
+    Color? backgroundColor,
+    Color? foregroundColor,
     bool abortPrevious = true,
     bool transparent = true,
     bool progressBar = true,
     bool dragToClose = true,
     bool closeOnClick = true,
+
   }) async {
     if (abortPrevious) {
       toastification.dismissAll();
@@ -57,6 +61,9 @@ class Notif {
       closeOnClick: closeOnClick,
       applyBlurEffect: transparent,
       showProgressBar: progressBar,
+      primaryColor: primaryColor,
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
     );
   }
 
