@@ -41,7 +41,6 @@ class Notif {
     bool progressBar = true,
     bool dragToClose = true,
     bool closeOnClick = true,
-
   }) async {
     if (abortPrevious) {
       toastification.dismissAll();
@@ -92,11 +91,12 @@ class Notif {
             if (cancelButton != null) ...[
               TextButton(
                 onPressed: () {
-                  if (closePopup) {
-                    Navigator.of(context).pop(false);
-                  }
+                  Navigator.of(context).pop(false);
                 },
-                child: Text(cancelButton),
+                child: Text(
+                  cancelButton,
+                  style: const TextStyle(fontWeight: FontWeight.w300),
+                ),
               ),
             ],
             TextButton(
@@ -105,7 +105,10 @@ class Notif {
                   Navigator.of(context).pop(true);
                 }
               },
-              child: Text(confirmButton),
+              child: Text(
+                confirmButton,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         );
