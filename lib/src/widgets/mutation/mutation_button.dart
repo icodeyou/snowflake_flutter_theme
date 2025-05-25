@@ -20,7 +20,6 @@ class MutationButton<T> extends ConsumerWidget {
     this.thickness,
     this.outlineColor,
     required this.onPressed,
-    this.isLoading,
     this.onSuccess,
     this.onError,
   });
@@ -42,17 +41,9 @@ class MutationButton<T> extends ConsumerWidget {
   final void Function(T)? onSuccess;
   final VoidCallback? onError;
 
-  /// If true, the loading state of 'onPressed' will be overriden by this value.
-  final bool? isLoading;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final MutationState mutationState;
-    if (isLoading != null) {
-      mutationState = isLoading! ? MutationState.loading : MutationState.idle;
-    } else {
-      mutationState = ref.watch(mutationControllerProvider(hashCode));
-    }
+    final mutationState = ref.watch(mutationControllerProvider(hashCode));
     switch (mutationState) {
       case MutationState.loading:
         return Center(child: CircularProgressIndicator(color: color));
