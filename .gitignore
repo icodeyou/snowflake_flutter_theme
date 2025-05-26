@@ -35,6 +35,7 @@ build/
 ios/Flutter/Generated.xcconfig
 ios/Flutter/flutter_export_environment.sh
 ios/Runner/GeneratedPluginRegistrant.m
+ios/Flutter/ephemeral/
 
 # android related
 android/local.properties
