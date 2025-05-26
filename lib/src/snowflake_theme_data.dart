@@ -87,7 +87,7 @@ ThemeData getSnowflakeThemeData({
       onSurfaceVariant: appColors.onBackground.withAlpha(50),
       outline: Colors.transparent,
     ),
-    dialogTheme: DialogTheme(
+    dialogTheme: DialogThemeData(
       backgroundColor: appColors.background,
       titleTextStyle: TextStyle(color: appColors.primary),
       contentTextStyle: TextStyle(color: appColors.onBackground),
@@ -155,7 +155,7 @@ ThemeData getSnowflakeThemeData({
       trackColor: WidgetStateProperty.all(appColors.secondary),
       trackOutlineColor: WidgetStateProperty.all(appColors.secondary),
     ),
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: appColors.primary,
       unselectedLabelColor: appColors.onBackground,
     ),
