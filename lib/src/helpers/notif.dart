@@ -73,44 +73,52 @@ class Notif {
     required String confirmButton,
     String? cancelButton,
     bool closePopup = true,
+    DialogThemeData? customDialogTheme,
+    TextButtonThemeData? textButtonTheme,
   }) async {
     final userAnswer = await showDialog<bool>(
       context: context,
       barrierDismissible: closePopup,
       builder: (context) {
-        return AlertDialog(
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: ThemeSizes.l,
-            ),
+        return Theme(
+          data: Theme.of(context).copyWith(
+            dialogTheme: customDialogTheme,
+            textButtonTheme: textButtonTheme,
           ),
-          content: Text(content),
-          actions: [
-            if (cancelButton != null) ...[
+          child: AlertDialog(
+            title: Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: ThemeSizes.l,
+              ),
+            ),
+            content: Text(content),
+            actions: [
+              if (cancelButton != null) ...[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(false);
+                  },
+                  child: Text(
+                    cancelButton,
+                    style: const TextStyle(fontWeight: FontWeight.w300),
+                  ),
+                ),
+              ],
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(false);
+                  if (closePopup) {
+                    Navigator.of(context).pop(true);
+                  }
                 },
                 child: Text(
-                  cancelButton,
-                  style: const TextStyle(fontWeight: FontWeight.w300),
+                  confirmButton,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
             ],
-            TextButton(
-              onPressed: () {
-                if (closePopup) {
-                  Navigator.of(context).pop(true);
-                }
-              },
-              child: Text(
-                confirmButton,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
+          ),
         );
       },
     );
