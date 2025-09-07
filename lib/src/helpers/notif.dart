@@ -73,12 +73,14 @@ class Notif {
     required String confirmButton,
     String? cancelButton,
     bool closePopup = true,
+    bool dismissible = true,
     DialogThemeData? customDialogTheme,
     TextButtonThemeData? textButtonTheme,
   }) async {
     final userAnswer = await showDialog<bool>(
       context: context,
-      barrierDismissible: closePopup,
+      // ignore: avoid_bool_literals_in_conditional_expressions
+      barrierDismissible: dismissible ? closePopup : false,
       builder: (context) {
         return Theme(
           data: Theme.of(context).copyWith(
