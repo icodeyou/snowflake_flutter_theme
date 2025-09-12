@@ -146,9 +146,10 @@ ThemeData getSnowflakeThemeData({
       fillColor: WidgetStateProperty.all(appColors.primary),
     ),
     scaffoldBackgroundColor: appColors.background,
-    snackBarTheme: SnackBarThemeData(
-      backgroundColor: appColors.secondary,
-      contentTextStyle: TextStyle(color: appColors.onSecondary),
+    snackBarTheme: const SnackBarThemeData(
+      backgroundColor: Colors.white,
+      contentTextStyle: TextStyle(color: Colors.black),
+      actionTextColor: Colors.black,
     ),
     switchTheme: SwitchThemeData(
       thumbColor: WidgetStateProperty.all(appColors.primary),
