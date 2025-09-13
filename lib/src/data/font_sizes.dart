@@ -20,4 +20,7 @@ class ThemeFontSizes {
 
   /// Font size XXL
   static const double xxl = 32;
+
+  /// Font size XXXL
+  static const double xxxl = 40;
 }

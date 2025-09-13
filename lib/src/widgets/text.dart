@@ -222,6 +222,33 @@ class AppText extends StatelessWidget {
         ),
         fontSize = ThemeFontSizes.xxl;
 
+  /// The constructor XXXL
+  /// It gives an XXXL value for the parameter [fontSize]
+  /// [fontSize] cannot be overridden
+  const AppText.xxxl(
+    this.text, {
+    super.key,
+    this.bold = false,
+    this.italic = false,
+    this.scaleText = true,
+    this.textAlign,
+    this.softWrap,
+    this.overflow,
+    this.maxLines,
+    this.color,
+    this.fontWeight,
+    this.fontStyle,
+    this.textDecoration,
+  })  : assert(
+          !bold || fontWeight == null,
+          'If bold is set to true, fontWeight must be null',
+        ),
+        assert(
+          !italic || fontStyle == null,
+          'If italic is set to true, fontStyle must be null',
+        ),
+        fontSize = ThemeFontSizes.xxxl;
+
   /// Text to display in the widget
   final String text;
 
