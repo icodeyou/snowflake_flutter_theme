@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snowflake_flutter_theme/src/widgets/form/textfield.dart';
+import 'package:snowflake_flutter_theme/src/widgets/form/text_field.dart';
 
 /// Extension on [String] to make it cleaner and safer.
 extension SanitizationExtensions on String {
