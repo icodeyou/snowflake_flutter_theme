@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 import 'package:snowflake_flutter_theme/src/i18n/translations.g.dart';
 import 'package:snowflake_flutter_theme/src/widgets/form/sanitizater.dart';
-import 'package:snowflake_flutter_theme/src/widgets/form/smart_controller.dart';
 import 'package:string_validator/string_validator.dart';
 
 enum SmartFieldType {
@@ -21,21 +19,36 @@ const String undefinedSmartFieldKey = 'UNDEFINED';
 
 class AppTextField extends FormBuilderField<String> {
   AppTextField({
+    required this.trim,
     this.type = SmartFieldType.raw,
     GlobalKey<AppTextFieldState>? smartKey,
     SmartController? smartController,
     bool required = false,
-    String name = undefinedSmartFieldKey,
+    String formBuilderKey = undefinedSmartFieldKey,
     InputDecoration? decoration,
     String? label,
     String? hint,
     bool validateOnChanged = false,
     String? Function(String text)? validator,
-    void Function(String text)? onChanged,
+    void Function(String)? onChanged,
   }) : super(
           key: smartKey,
-          name: name,
+          name: formBuilderKey,
+          onChanged: (v) {
+            if (v == null) {
+              return;
+            }
+            if (trim) {
+              v = v.trim();
+            }
+            onChanged?.call(v);
+          },
           validator: (value) {
+            // Trim
+            if (trim && value != null) {
+              value = value.trim();
+            }
+
             // Required check
             if (value == null || value.isEmpty) {
               if (required) {
@@ -72,7 +85,7 @@ class AppTextField extends FormBuilderField<String> {
           builder: (field) {
             return FormBuilderTextField(
               controller: smartController,
-              name: name,
+              name: formBuilderKey,
               inputFormatters: _getInputFormatters(type),
               decoration: (decoration ??
                       InputDecoration(
@@ -104,6 +117,7 @@ class AppTextField extends FormBuilderField<String> {
   @override
   AppTextFieldState createState() => AppTextFieldState();
 
+  final bool trim;
   final SmartFieldType type;
 
   static List<TextInputFormatter> _getInputFormatters(SmartFieldType type) {
@@ -124,16 +138,14 @@ class AppTextField extends FormBuilderField<String> {
   }
 }
 
-class AppTextFieldState
-    extends FormBuilderFieldState<FormBuilderField<String>, String> {
+class AppTextFieldState extends FormBuilderFieldState<AppTextField, String> {
   @override
   String get value {
     final value = super.value;
     if (value == null) {
       return '';
     }
-    return Sanitizer().run(
-      value,
-    );
+    final sanitizedText = Sanitizer().run(value);
+    return widget.trim ? sanitizedText.trim() : sanitizedText;
   }
 }

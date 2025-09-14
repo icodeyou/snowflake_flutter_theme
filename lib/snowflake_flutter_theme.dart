@@ -21,6 +21,8 @@ export 'src/snowflake_theme_data.dart' show getSnowflakeThemeData;
 export 'src/widgets/assets.dart';
 export 'src/widgets/buttons.dart';
 export 'src/widgets/error_details.dart';
+export 'src/widgets/form/smart_controller.dart';
+export 'src/widgets/form/text_field.dart';
 export 'src/widgets/gap.dart';
 export 'src/widgets/gradient.dart';
 export 'src/widgets/loader.dart';
