@@ -15,7 +15,7 @@ enum SmartFieldType {
   date,
 }
 
-const String undefinedSmartFieldKey = 'UNDEFINED';
+const String undefinedSmartFieldKey = 'UNDEFINED_KEY';
 
 class AppTextField extends FormBuilderField<String> {
   AppTextField({
