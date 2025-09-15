@@ -114,7 +114,9 @@ class AppTextField extends FormBuilderField<String> {
               },
             );
           },
-        );
+        ) {
+    smartController?.text = initialValue ?? '';
+  }
 
   @override
   AppTextFieldState createState() => AppTextFieldState();
