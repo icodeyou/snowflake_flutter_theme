@@ -55,7 +55,7 @@ class Notif {
       autoCloseDuration: duration ?? const Duration(seconds: 5),
       borderRadius: ThemeRadius.m.asBorderRadius,
       boxShadow: highModeShadow,
-      closeButtonShowType: CloseButtonShowType.none,
+      closeButton: const ToastCloseButton(showType: CloseButtonShowType.none),
       dragToClose: dragToClose,
       closeOnClick: closeOnClick,
       applyBlurEffect: transparent,
@@ -63,7 +63,6 @@ class Notif {
       primaryColor: primaryColor,
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
-      
     );
   }
 
