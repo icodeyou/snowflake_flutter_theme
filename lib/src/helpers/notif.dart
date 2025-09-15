@@ -54,7 +54,7 @@ class Notif {
       alignment: Alignment.bottomCenter,
       autoCloseDuration: duration ?? const Duration(seconds: 5),
       borderRadius: ThemeRadius.m.asBorderRadius,
-      boxShadow: highModeShadow,
+      boxShadow: transparent ? highModeShadow : null,
       closeButtonShowType: CloseButtonShowType.none,
       dragToClose: dragToClose,
       closeOnClick: closeOnClick,
