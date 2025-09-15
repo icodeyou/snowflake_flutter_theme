@@ -5,6 +5,7 @@ import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 import 'package:snowflake_flutter_theme/src/i18n/translations.g.dart';
 import 'package:snowflake_flutter_theme/src/widgets/form/sanitizater.dart';
 import 'package:string_validator/string_validator.dart';
+import 'package:uuid/uuid.dart';
 
 enum SmartFieldType {
   raw,
@@ -18,9 +19,9 @@ enum SmartFieldType {
 class AppTextField extends FormBuilderField<String> {
   AppTextField({
     required this.trim,
-    required String nameKey,
     this.type = SmartFieldType.raw,
-    GlobalKey<AppTextFieldState>? smartKey,
+    GlobalKey<AppTextFieldState>? key,
+    String? nameKey,
     SmartController? smartController,
     bool required = false,
     InputDecoration? decoration,
@@ -30,8 +31,8 @@ class AppTextField extends FormBuilderField<String> {
     String? Function(String text)? validator,
     void Function(String)? onChanged,
   }) : super(
-          key: smartKey,
-          name: nameKey,
+          key: key,
+          name: nameKey == null ? const Uuid().v4() : '${nameKey}_field',
           onChanged: (v) {
             if (v == null) {
               return;
@@ -83,7 +84,8 @@ class AppTextField extends FormBuilderField<String> {
           builder: (field) {
             return FormBuilderTextField(
               controller: smartController,
-              name: '${nameKey}_bis',
+              name:
+                  nameKey == null ? const Uuid().v4() : '${nameKey}_text_field',
               inputFormatters: _getInputFormatters(type),
               decoration: (decoration ??
                       InputDecoration(
