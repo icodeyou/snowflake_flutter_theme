@@ -23,7 +23,7 @@ class AppTextField extends FormBuilderField<String> {
     GlobalKey<AppTextFieldState>? smartKey,
     SmartController? smartController,
     bool required = false,
-    String? formBuilderKey,
+    String? nameKey,
     InputDecoration? decoration,
     String? label,
     String? hint,
@@ -32,7 +32,7 @@ class AppTextField extends FormBuilderField<String> {
     void Function(String)? onChanged,
   }) : super(
           key: smartKey,
-          name: formBuilderKey ?? const Uuid().v4(),
+          name: nameKey ?? const Uuid().v4(),
           onChanged: (v) {
             if (v == null) {
               return;
@@ -84,7 +84,7 @@ class AppTextField extends FormBuilderField<String> {
           builder: (field) {
             return FormBuilderTextField(
               controller: smartController,
-              name: formBuilderKey,
+              name: nameKey,
               inputFormatters: _getInputFormatters(type),
               decoration: (decoration ??
                       InputDecoration(
