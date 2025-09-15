@@ -31,6 +31,7 @@ class AppErrorDetailsWidget extends StatelessWidget {
           children: [
             AppText.l(
               errorTitle,
+              bold: true,
               color: red
                   ? ThemeColors.statusError
                   : ThemeColors.onBackground(context),
