@@ -83,7 +83,7 @@ class AppTextField extends FormBuilderField<String> {
           builder: (field) {
             return FormBuilderTextField(
               controller: smartController,
-              name: nameKey,
+              name: '${nameKey}_bis',
               inputFormatters: _getInputFormatters(type),
               decoration: (decoration ??
                       InputDecoration(
