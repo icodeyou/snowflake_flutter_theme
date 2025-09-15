@@ -34,6 +34,7 @@ class AppTextField extends FormBuilderField<String> {
   }) : super(
           key: key,
           name: nameKey == null ? const Uuid().v4() : '${nameKey}_field',
+          initialValue: initialValue,
           onChanged: (v) {
             if (v == null) {
               return;
@@ -114,9 +115,7 @@ class AppTextField extends FormBuilderField<String> {
               },
             );
           },
-        ) {
-    smartController?.text = initialValue ?? '';
-  }
+        );
 
   @override
   AppTextFieldState createState() => AppTextFieldState();
