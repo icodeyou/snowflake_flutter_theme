@@ -24,6 +24,7 @@ class AppTextField extends FormBuilderField<String> {
     String? nameKey,
     SmartController? smartController,
     bool required = false,
+    String? initialValue,
     InputDecoration? decoration,
     String? label,
     String? hint,
@@ -84,6 +85,7 @@ class AppTextField extends FormBuilderField<String> {
           builder: (field) {
             return FormBuilderTextField(
               controller: smartController,
+              initialValue: initialValue,
               name:
                   nameKey == null ? const Uuid().v4() : '${nameKey}_text_field',
               inputFormatters: _getInputFormatters(type),
