@@ -33,7 +33,7 @@ class AppTextField extends FormBuilderField<String> {
     void Function(String)? onChanged,
   }) : super(
           key: key,
-          name: nameKey == null ? const Uuid().v4() : '${nameKey}_field',
+          name: nameKey ?? const Uuid().v4(),
           initialValue: initialValue,
           onChanged: (v) {
             if (v == null) {
