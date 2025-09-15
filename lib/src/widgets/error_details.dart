@@ -27,6 +27,7 @@ class AppErrorDetailsWidget extends StatelessWidget {
         padding: ThemeSizes.m.asInsets,
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          spacing: ThemeSizes.m,
           children: [
             AppText.l(
               errorTitle,

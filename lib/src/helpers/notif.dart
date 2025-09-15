@@ -63,6 +63,7 @@ class Notif {
       primaryColor: primaryColor,
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
+      
     );
   }
 
