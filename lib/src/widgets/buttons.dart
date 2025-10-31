@@ -26,6 +26,7 @@ class AppButton extends StatelessWidget {
     this.radius,
     this.thickness,
     this.outlineColor,
+    this.backgroundColor,
     this.iconPosition = IconPosition.left,
     this.expand = false,
   });
@@ -44,7 +45,8 @@ class AppButton extends StatelessWidget {
     this.expand = false,
   })  : buttonType = ButtonType.primary,
         thickness = null,
-        outlineColor = null;
+        outlineColor = null,
+        backgroundColor = null;
 
   const AppButton.secondary({
     super.key,
@@ -58,6 +60,7 @@ class AppButton extends StatelessWidget {
     this.radius,
     this.thickness,
     this.outlineColor,
+    this.backgroundColor,
     this.iconPosition = IconPosition.left,
     this.expand = false,
   }) : buttonType = ButtonType.secondary;
@@ -74,6 +77,7 @@ class AppButton extends StatelessWidget {
   final BorderRadius? radius;
   final double? thickness;
   final Color? outlineColor;
+  final Color? backgroundColor;
   final bool expand;
 
   @override
@@ -106,7 +110,7 @@ class AppButton extends StatelessWidget {
       }
     }();
 
-    final buttonRadius = radius ?? ThemeRadius.m.asBorderRadius;
+    final buttonRadius = radius ?? ThemeRadius.s.asBorderRadius;
 
     final style = () {
       switch (buttonType) {
@@ -121,6 +125,7 @@ class AppButton extends StatelessWidget {
         case ButtonType.secondary:
           return OutlinedButton.styleFrom(
             elevation: 0,
+            backgroundColor: backgroundColor ?? Colors.transparent,
             side: BorderSide(
               width: thickness ?? 1,
               color: outlineColor ?? foregroundColor,
@@ -156,8 +161,8 @@ class AppButton extends StatelessWidget {
               child: Padding(
                 padding: padding ??
                     const EdgeInsets.symmetric(
-                      horizontal: ThemeSizes.l,
-                      vertical: ThemeSizes.m,
+                      horizontal: ThemeSizes.s,
+                      vertical: ThemeSizes.s,
                     ),
                 child: AppText(
                   label,

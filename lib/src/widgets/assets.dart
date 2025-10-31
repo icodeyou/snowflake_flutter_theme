@@ -43,6 +43,7 @@ class AppAssetSvg extends StatelessWidget {
     this.width,
     this.height,
     this.size,
+    this.fit,
   })  : assert(
           !(width != null && size != null),
           'size and width cannot be provided together',
@@ -57,6 +58,7 @@ class AppAssetSvg extends StatelessWidget {
   final double? width;
   final double? height;
   final double? size;
+  final BoxFit? fit;
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +66,7 @@ class AppAssetSvg extends StatelessWidget {
       'assets/$filePathFromAsset',
       width: size ?? width,
       height: size ?? height,
+      fit: fit ?? BoxFit.contain,
       colorFilter:
           color == null ? null : ColorFilter.mode(color!, BlendMode.srcIn),
     );

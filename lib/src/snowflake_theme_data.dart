@@ -28,7 +28,7 @@ ThemeData getSnowflakeThemeData({
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: appColors.onPrimary,
-      unselectedItemColor: appColors.onPrimary.withAlpha(51),
+      unselectedItemColor: appColors.onPrimary,
       backgroundColor: appColors.background,
     ),
     navigationBarTheme: NavigationBarThemeData(
@@ -48,7 +48,7 @@ ThemeData getSnowflakeThemeData({
           );
         }
         return IconThemeData(
-          color: appColors.primary.withAlpha(51),
+          color: appColors.primary.withAlpha(150),
         );
       }),
     ),
@@ -84,9 +84,10 @@ ThemeData getSnowflakeThemeData({
       onSecondary: appColors.onSecondary,
       surface: appColors.background,
       onSurface: appColors.onBackground,
+      onSurfaceVariant: appColors.onBackground.withAlpha(50),
       outline: Colors.transparent,
     ),
-    dialogTheme: DialogTheme(
+    dialogTheme: DialogThemeData(
       backgroundColor: appColors.background,
       titleTextStyle: TextStyle(color: appColors.primary),
       contentTextStyle: TextStyle(color: appColors.onBackground),
@@ -145,16 +146,17 @@ ThemeData getSnowflakeThemeData({
       fillColor: WidgetStateProperty.all(appColors.primary),
     ),
     scaffoldBackgroundColor: appColors.background,
-    snackBarTheme: SnackBarThemeData(
-      backgroundColor: appColors.secondary,
-      contentTextStyle: TextStyle(color: appColors.onSecondary),
+    snackBarTheme: const SnackBarThemeData(
+      backgroundColor: Colors.white,
+      contentTextStyle: TextStyle(color: Colors.black),
+      actionTextColor: Colors.black,
     ),
     switchTheme: SwitchThemeData(
       thumbColor: WidgetStateProperty.all(appColors.primary),
       trackColor: WidgetStateProperty.all(appColors.secondary),
       trackOutlineColor: WidgetStateProperty.all(appColors.secondary),
     ),
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: appColors.primary,
       unselectedLabelColor: appColors.onBackground,
     ),

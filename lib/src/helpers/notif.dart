@@ -33,6 +33,9 @@ class Notif {
     ToastType? type,
     ToastStyle? style,
     Duration? duration,
+    Color? primaryColor,
+    Color? backgroundColor,
+    Color? foregroundColor,
     bool abortPrevious = true,
     bool transparent = true,
     bool progressBar = true,
@@ -46,17 +49,20 @@ class Notif {
       context: context,
       type: typeMapper[type ?? ToastType.basic],
       style: styleMapper[style ?? ToastStyle.fillColored],
-      title: AppText.m(title, maxLines: 2),
-      description: AppText.s(message, maxLines: 12),
+      title: Text(title, maxLines: 2),
+      description: Text(message, maxLines: 12),
       alignment: Alignment.bottomCenter,
-      autoCloseDuration: duration ?? const Duration(seconds: 4),
+      autoCloseDuration: duration ?? const Duration(seconds: 5),
       borderRadius: ThemeRadius.m.asBorderRadius,
       boxShadow: highModeShadow,
-      closeButtonShowType: CloseButtonShowType.none,
+      closeButton: const ToastCloseButton(showType: CloseButtonShowType.none),
       dragToClose: dragToClose,
       closeOnClick: closeOnClick,
       applyBlurEffect: transparent,
       showProgressBar: progressBar,
+      primaryColor: primaryColor,
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
     );
   }
 
@@ -67,40 +73,54 @@ class Notif {
     required String confirmButton,
     String? cancelButton,
     bool closePopup = true,
+    bool dismissible = true,
+    DialogThemeData? customDialogTheme,
+    TextButtonThemeData? textButtonTheme,
   }) async {
     final userAnswer = await showDialog<bool>(
       context: context,
-      barrierDismissible: closePopup,
+      // ignore: avoid_bool_literals_in_conditional_expressions
+      barrierDismissible: dismissible ? closePopup : false,
       builder: (context) {
-        return AlertDialog(
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: ThemeSizes.l,
-            ),
+        return Theme(
+          data: Theme.of(context).copyWith(
+            dialogTheme: customDialogTheme,
+            textButtonTheme: textButtonTheme,
           ),
-          content: Text(content),
-          actions: [
-            if (cancelButton != null) ...[
+          child: AlertDialog(
+            title: Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: ThemeSizes.l,
+              ),
+            ),
+            content: Text(content),
+            actions: [
+              if (cancelButton != null) ...[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(false);
+                  },
+                  child: Text(
+                    cancelButton,
+                    style: const TextStyle(fontWeight: FontWeight.w300),
+                  ),
+                ),
+              ],
               TextButton(
                 onPressed: () {
                   if (closePopup) {
-                    Navigator.of(context).pop(false);
+                    Navigator.of(context).pop(true);
                   }
                 },
-                child: Text(cancelButton),
+                child: Text(
+                  confirmButton,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
             ],
-            TextButton(
-              onPressed: () {
-                if (closePopup) {
-                  Navigator.of(context).pop(true);
-                }
-              },
-              child: Text(confirmButton),
-            ),
-          ],
+          ),
         );
       },
     );
