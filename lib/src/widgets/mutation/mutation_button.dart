@@ -43,7 +43,7 @@ class MutationButton<T> extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final mutationState = ref.watch(mutationControllerProvider(hashCode));
+    final mutationState = ref.watch(myMutationControllerProvider(hashCode));
     switch (mutationState) {
       case MutationState.loading:
         return Center(child: CircularProgressIndicator(color: color));
@@ -63,7 +63,7 @@ class MutationButton<T> extends ConsumerWidget {
           outlineColor: outlineColor,
           onPressed: () async {
             await ref
-                .read(mutationControllerProvider(hashCode).notifier)
+                .read(myMutationControllerProvider(hashCode).notifier)
                 .action<T>(
                   mutation: onPressed,
                   onSuccess: onSuccess,
