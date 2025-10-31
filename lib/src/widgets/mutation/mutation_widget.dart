@@ -19,7 +19,7 @@ class MutationWidget<T> extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final mutationState = ref.watch(mutationControllerProvider(hashCode));
+    final mutationState = ref.watch(myMutationControllerProvider(hashCode));
     switch (mutationState) {
       case MutationState.loading:
         return const CircularProgressIndicator();
@@ -27,7 +27,7 @@ class MutationWidget<T> extends ConsumerWidget {
         return GestureDetector(
           onTap: () async {
             await ref
-                .read(mutationControllerProvider(hashCode).notifier)
+                .read(myMutationControllerProvider(hashCode).notifier)
                 .action<T>(
                   mutation: onPressed,
                   onSuccess: onSuccess,
