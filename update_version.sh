@@ -5,7 +5,7 @@ echo "🚀 Let's update the Snowflake version!"
 echo ""
 
 #logMethod
-🔶() {
+log() {
     echo -e "\n🔶 $1\n"
 }
 
@@ -51,7 +51,7 @@ if has_uncommitted_changes; then
     read -r user_commit_message
 fi
 
-🔶 'Get latest tag'
+log 'Get latest tag'
 old_version=$(get_latest_tag)
 echo "ℹ️  The latest version is $old_version"
 echo ""
@@ -64,50 +64,50 @@ read -p "Enter the next build number (next branch number): " next_build_number
 echo -e "\n🔶 Check that new branch v${next_build_number} doesn't already exist"
 check_branch_exists "v${next_build_number}"
 
-🔶 'Create and switch to the new branch v${next_build_number}'
+log 'Create and switch to the new branch v${next_build_number}'
 git checkout -b "v${next_build_number}" || error_exit "Failed to create and switch to the branch 'v${next_build_number}'."
 
-🔶 'Commit last changed to new branch'
+log 'Commit last changed to new branch'
 if has_uncommitted_changes; then
     git add .
     git commit -m "$user_commit_message" || error_exit "Failed to commit uncommitted changes."
 fi
 
-🔶 'Replace version in pubspec.yaml'
+log 'Replace version in pubspec.yaml'
 sed -i '' "s/^version:.*/version: ${new_version}+${next_build_number}/" pubspec.yaml
 
-🔶 'Commit version update'
+log 'Commit version update'
 git commit -am "pub: update version to ${new_version}+${next_build_number}" || error_exit "Failed to commit version update."
 
-🔶 'Checkout master'
+log 'Checkout master'
 git checkout master || error_exit "Failed to switch to master branch."
 
-🔶 'Merge v${next_build_number} into master'
+log 'Merge v${next_build_number} into master'
 git merge "v${next_build_number}" -m "Merge v${next_build_number} into master" --no-ff || error_exit "Failed to merge branch 'v${next_build_number}'."
 
-🔶 'Fetch latest changes and display log\n'
+log 'Fetch latest changes and display log\n'
 git pull || error_exit "Failed to pull the latest changes from the remote repository."
 git --no-pager log --date=format:"%Y-%m-%d %H:%M:%S" --pretty=format:"%C(yellow)%h%Cgreen -- %ad %C(magenta)[%an]%Creset : %s" -10 || error_exit "Failed to display the git log."
 
-🔶 'Tag the commit with ${new_version}'
+log 'Tag the commit with ${new_version}'
 git tag "${new_version}" -m "Release ${new_version}" || error_exit "Failed to tag the commit with version ${new_version}."
 
-🔶 'Push the tags to the remote repository'
+log 'Push the tags to the remote repository'
 git push --tags || error_exit "Failed to push the tags to the remote repository."
 
-🔶 'Update the NEXT version and build number in pubspec.yaml'
+log 'Update the NEXT version and build number in pubspec.yaml'
 sed -i '' "s/^version:.*/version: ${next_version}+${next_build_number}/" pubspec.yaml
 
-🔶 'Commit the changes for next version'
+log 'Commit the changes for next version'
 git commit -am "[DELIVERY ${old_version}]: upgrade version to ${new_version}" || error_exit "Failed to commit the version update."
 
-🔶 'Push changes to master'
+log 'Push changes to master'
 git push || error_exit "Failed to push the changes to the master branch."
 
-🔶 'Switch back to v${next_build_number}'
+log 'Switch back to v${next_build_number}'
 git checkout "v${next_build_number}" || error_exit "Failed to switch back to 'v${next_build_number}'."
 
-🔶 'Push new branch'
+log 'Push new branch'
 git push --set-upstream origin "v${next_build_number}" || error_exit "Failed to push the branch 'v${next_build_number}'."
 
 # Print a message indicating completion
