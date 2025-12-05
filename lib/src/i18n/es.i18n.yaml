@@ -1,0 +1,8 @@
+validators:
+  invalidInput: Entrada inválida
+  required: Este campo es obligatorio
+  wholeNumber: Debe ser un número entero
+  decimalNumber: Debe ser un número decimal
+  email: Dirección de correo electrónico inválida
+  url: URL inválida
+  date: La fecha es inválida
