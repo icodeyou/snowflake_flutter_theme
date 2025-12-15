@@ -116,6 +116,7 @@ class AppButton extends StatelessWidget {
       switch (buttonType) {
         case ButtonType.primary:
           return ElevatedButton.styleFrom(
+            overlayColor: Colors.white,
             backgroundColor: color ?? ThemeColors.primary(context),
             elevation: 0,
             shape: RoundedRectangleBorder(
@@ -124,6 +125,7 @@ class AppButton extends StatelessWidget {
           );
         case ButtonType.secondary:
           return OutlinedButton.styleFrom(
+            overlayColor: ThemeColors.primary(context),
             elevation: 0,
             backgroundColor: backgroundColor ?? Colors.transparent,
             side: BorderSide(
