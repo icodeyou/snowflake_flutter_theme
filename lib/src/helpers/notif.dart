@@ -69,9 +69,9 @@ class Notif {
   static Future<bool> showPopup({
     required BuildContext context,
     required String title,
-    required String content,
-    required String confirmButton,
-    String? cancelButton,
+    required Widget content,
+    required String confirmButtonText,
+    String? cancelButtonText,
     bool closePopup = true,
     bool dismissible = true,
     DialogThemeData? customDialogTheme,
@@ -95,15 +95,15 @@ class Notif {
                 fontSize: ThemeSizes.l,
               ),
             ),
-            content: Text(content),
+            content: content,
             actions: [
-              if (cancelButton != null) ...[
+              if (cancelButtonText != null) ...[
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop(false);
                   },
                   child: Text(
-                    cancelButton,
+                    cancelButtonText,
                     style: const TextStyle(fontWeight: FontWeight.w300),
                   ),
                 ),
@@ -115,7 +115,7 @@ class Notif {
                   }
                 },
                 child: Text(
-                  confirmButton,
+                  confirmButtonText,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
