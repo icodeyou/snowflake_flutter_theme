@@ -5,7 +5,7 @@ import 'package:snowflake_flutter_theme/src/widgets/mutation/mutation_state.dart
 part 'mutation_controller.g.dart';
 
 @riverpod
-class MyMutationController extends _$MyMutationController {
+class MutationController extends _$MutationController {
   @override
   MutationState build(int key) {
     return MutationState.idle;
