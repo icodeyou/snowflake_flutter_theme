@@ -17,9 +17,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	Translations({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	Translations({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.en,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -36,6 +36,8 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	late final Translations _root = this; // ignore: unused_field
 
+	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
+
 	// Translations
 	late final TranslationsValidatorsEn validators = TranslationsValidatorsEn._(_root);
 }
@@ -47,19 +49,40 @@ class TranslationsValidatorsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Invalid value'
 	String get invalidInput => 'Invalid value';
+
+	/// en: 'This field is required'
 	String get required => 'This field is required';
+
+	/// en: 'Must be a whole number'
 	String get wholeNumber => 'Must be a whole number';
+
+	/// en: 'Must be a decimal number'
 	String get decimalNumber => 'Must be a decimal number';
+
+	/// en: 'Invalid email address'
 	String get email => 'Invalid email address';
+
+	/// en: 'Invalid URL'
 	String get url => 'Invalid URL';
+
+	/// en: 'The date is invalid'
 	String get date => 'The date is invalid';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
+		return _flatMapFunction$0(path);
+	}
+
+	dynamic _flatMapFunction$0(String path) {
 		switch (path) {
 			case 'validators.invalidInput': return 'Invalid value';
 			case 'validators.required': return 'This field is required';
