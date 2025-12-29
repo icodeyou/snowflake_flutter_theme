@@ -11,6 +11,7 @@ class AppText extends StatelessWidget {
     this.text, {
     super.key,
     required this.fontSize,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -39,6 +40,7 @@ class AppText extends StatelessWidget {
   const AppText.xxs(
     this.text, {
     super.key,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -66,6 +68,7 @@ class AppText extends StatelessWidget {
   const AppText.xs(
     this.text, {
     super.key,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -93,6 +96,7 @@ class AppText extends StatelessWidget {
   const AppText.s(
     this.text, {
     super.key,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -120,6 +124,7 @@ class AppText extends StatelessWidget {
   const AppText.m(
     this.text, {
     super.key,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -147,6 +152,7 @@ class AppText extends StatelessWidget {
   const AppText.l(
     this.text, {
     super.key,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -174,6 +180,7 @@ class AppText extends StatelessWidget {
   const AppText.xl(
     this.text, {
     super.key,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -201,6 +208,7 @@ class AppText extends StatelessWidget {
   const AppText.xxl(
     this.text, {
     super.key,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -228,6 +236,7 @@ class AppText extends StatelessWidget {
   const AppText.xxxl(
     this.text, {
     super.key,
+    this.fontFamily,
     this.bold = false,
     this.italic = false,
     this.scaleText = true,
@@ -290,6 +299,9 @@ class AppText extends StatelessWidget {
   /// A linear decoration to draw near the text.
   final TextDecoration? textDecoration;
 
+  /// The font family to use for the text
+  final String? fontFamily;
+
   @override
   Widget build(BuildContext context) {
     final overflow = (this.overflow == null && maxLines != null)
@@ -310,6 +322,7 @@ class AppText extends StatelessWidget {
       style: TextStyle(
         color: color,
         fontSize: fontSize,
+        fontFamily: fontFamily,
         fontWeight: bold ? FontWeight.bold : fontWeight,
         fontStyle: italic ? FontStyle.italic : fontStyle,
         decoration: textDecoration,
