@@ -72,7 +72,7 @@ class Notif {
     required Widget content,
     required String confirmButtonText,
     String? cancelButtonText,
-    bool? validator,
+    bool Function()? validator,
     bool closePopup = true,
     bool dismissible = true,
     DialogThemeData? customDialogTheme,
@@ -83,46 +83,48 @@ class Notif {
       // ignore: avoid_bool_literals_in_conditional_expressions
       barrierDismissible: dismissible ? closePopup : false,
       builder: (context) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            dialogTheme: customDialogTheme,
-            textButtonTheme: textButtonTheme,
-          ),
-          child: AlertDialog(
-            title: Text(
-              title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: ThemeSizes.l,
-              ),
+        return StatefulBuilder(
+          builder: (context, setState) => Theme(
+            data: Theme.of(context).copyWith(
+              dialogTheme: customDialogTheme,
+              textButtonTheme: textButtonTheme,
             ),
-            content: content,
-            actions: [
-              if (cancelButtonText != null) ...[
+            child: AlertDialog(
+              title: Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: ThemeSizes.l,
+                ),
+              ),
+              content: content,
+              actions: [
+                if (cancelButtonText != null) ...[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(false);
+                    },
+                    child: Text(
+                      cancelButtonText,
+                      style: const TextStyle(fontWeight: FontWeight.w300),
+                    ),
+                  ),
+                ],
                 TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(false);
-                  },
+                  onPressed: (validator != null && !validator())
+                      ? null
+                      : () {
+                          if (closePopup) {
+                            Navigator.of(context).pop(true);
+                          }
+                        },
                   child: Text(
-                    cancelButtonText,
-                    style: const TextStyle(fontWeight: FontWeight.w300),
+                    confirmButtonText,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
-              TextButton(
-                onPressed: validator == null
-                    ? null
-                    : () {
-                        if (closePopup) {
-                          Navigator.of(context).pop(true);
-                        }
-                      },
-                child: Text(
-                  confirmButtonText,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
+            ),
           ),
         );
       },
