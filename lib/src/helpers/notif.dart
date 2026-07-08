@@ -72,6 +72,7 @@ class Notif {
     required Widget content,
     required String confirmButtonText,
     String? cancelButtonText,
+    bool? validator,
     bool closePopup = true,
     bool dismissible = true,
     DialogThemeData? customDialogTheme,
@@ -109,11 +110,13 @@ class Notif {
                 ),
               ],
               TextButton(
-                onPressed: () {
-                  if (closePopup) {
-                    Navigator.of(context).pop(true);
-                  }
-                },
+                onPressed: validator == null
+                    ? null
+                    : () {
+                        if (closePopup) {
+                          Navigator.of(context).pop(true);
+                        }
+                      },
                 child: Text(
                   confirmButtonText,
                   style: const TextStyle(fontWeight: FontWeight.bold),
