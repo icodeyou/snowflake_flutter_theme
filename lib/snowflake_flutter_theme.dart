@@ -27,5 +27,7 @@ export 'src/widgets/gap.dart';
 export 'src/widgets/gradient.dart';
 export 'src/widgets/loader.dart';
 export 'src/widgets/mutation/mutation_button.dart';
+export 'src/widgets/mutation/mutation_controller.dart';
+export 'src/widgets/mutation/mutation_state.dart';
 export 'src/widgets/mutation/mutation_widget.dart';
 export 'src/widgets/text.dart';
