@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:snowflake_flutter_theme/snowflake_flutter_theme.dart';
 
 /// Error widget
-class AppErrorDetailsWidget extends StatelessWidget {
+class AppErrorView extends StatelessWidget {
   /// Constructor
-  const AppErrorDetailsWidget({
+  const AppErrorView({
     required this.errorTitle,
     required this.errorMessage,
     this.red = false,
