@@ -44,6 +44,12 @@ Widget tests in `test/init_test.dart`:
 - Callback firing order: `onInit` → `onDidChangeDependencies` → `onInitPostFrame`.
 - `onDispose` fires when the widget is removed from the tree.
 - No crash when all callbacks are null.
-- `onInitPostFrame` does not fire if the widget is disposed before the frame
-  completes.
+- `onDidChangeDependencies` fires exactly once (native semantics: it only
+  re-fires for states that registered an inherited dependency, and `Init`
+  registers none).
 - `child` is rendered.
+
+Note: the `mounted` guard on `onInitPostFrame` is kept as defensive code but
+is not directly testable — the test binding flushes post-frame callbacks at
+the end of every pump, so the dispose-before-frame interleaving cannot be
+constructed with public test APIs.

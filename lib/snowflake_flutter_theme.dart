@@ -25,6 +25,7 @@ export 'src/widgets/form/smart_controller.dart';
 export 'src/widgets/form/text_field.dart';
 export 'src/widgets/gap.dart';
 export 'src/widgets/gradient.dart';
+export 'src/widgets/init.dart';
 export 'src/widgets/loader.dart';
 export 'src/widgets/mutation/mutation_button.dart';
 export 'src/widgets/mutation/mutation_controller.dart';
