@@ -40,3 +40,6 @@ ios/Flutter/ephemeral/
 # android related
 android/local.properties
 android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+
+# AI related
+.claude/settings.local.json
