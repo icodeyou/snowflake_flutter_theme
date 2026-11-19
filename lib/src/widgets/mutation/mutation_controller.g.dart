@@ -10,11 +10,11 @@ part of 'mutation_controller.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(MyMutationController)
-const myMutationControllerProvider = MyMutationControllerFamily._();
+final myMutationControllerProvider = MyMutationControllerFamily._();
 
 final class MyMutationControllerProvider
     extends $NotifierProvider<MyMutationController, MutationState> {
-  const MyMutationControllerProvider._(
+  MyMutationControllerProvider._(
       {required MyMutationControllerFamily super.from,
       required int super.argument})
       : super(
@@ -59,13 +59,13 @@ final class MyMutationControllerProvider
 }
 
 String _$myMutationControllerHash() =>
-    r'6b7e979c0c7e0e5e4e81f28ec70d41705d22d471';
+    r'a06458e56ac492fd7f288578e7788b745d7aa0b2';
 
 final class MyMutationControllerFamily extends $Family
     with
         $ClassFamilyOverride<MyMutationController, MutationState, MutationState,
             MutationState, int> {
-  const MyMutationControllerFamily._()
+  MyMutationControllerFamily._()
       : super(
           retry: null,
           name: r'myMutationControllerProvider',
@@ -92,16 +92,17 @@ abstract class _$MyMutationController extends $Notifier<MutationState> {
   );
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build(
-      _$args,
-    );
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<MutationState, MutationState>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<MutationState, MutationState>,
         MutationState,
         Object?,
         Object?>;
-    element.handleValue(ref, created);
+    return element.handleCreate(
+        ref,
+        () => build(
+              _$args,
+            ));
   }
 }
